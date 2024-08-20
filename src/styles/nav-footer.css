@@ -1,3 +1,51 @@
+:root {
+  --z-index-nav: 1000;
+}
+
+/* General Styles */
+body {
+  font-family: var(--body-font), sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-nav);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-switcher {
+  background: none;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: ease-in-out;
+}
+
+#theme-switcher img {
+  width: 40px;
+}
+
+#theme-switcher:hover {
+  background-color: #69696961;
+}
+
 /* Logo */
 .logo {
     display: flex;
