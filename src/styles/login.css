@@ -1,20 +1,3 @@
-:root {
-  --background-color: white;
-  --font-color: black;
-  --gray-color: #00000091;
-
-  --accent-color: #1c1c5c;
-
-  --header-background-color: var(--background-color);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
   background: linear-gradient(240deg, #0e1042 59.8%, #292954 95.18%);
 }
@@ -37,7 +20,7 @@ body {
 
 .right-side {
   width: 50%;
-  background-color: #fff;
+  background-color: var(--background-color);
   border-radius: 120px 0 0 120px;
   display: flex;
   justify-content: center;

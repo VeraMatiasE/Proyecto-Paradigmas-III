@@ -1,0 +1,106 @@
+/* Logo */
+.logo {
+    display: flex;
+    flex-shrink: 0;
+  }
+  
+  .logo svg {
+    height: 30px;
+  }
+  
+  .logo .logo-name {
+    margin-left: 15px;
+    fill: black;
+  }
+  
+  /* Navbar Elements */
+  nav ul {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-family: var(--header-font), sans-serif;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+footer {
+    background-color: #212161;
+    padding-top: 20px;
+    fill: white;
+    color: white;
+  }
+  
+  footer .logo .logo-name {
+    fill: white;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-section.contact .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section.contact .social-icons a img {
+    width: 24px;
+  }
+  
+  .footer-section.contact p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .footer-copy {
+    background-color: #0a0b1a;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+  }
+  
+  .footer-copy p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
