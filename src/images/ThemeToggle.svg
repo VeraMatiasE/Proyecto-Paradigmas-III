@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.921515mm"
+   height="17.921515mm"
+   viewBox="0 0 17.921514 17.921515"
+   version="1.1"
+   id="svg2548"
+   sodipodi:docname="ThemeToggle.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2550"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.8277696"
+     inkscape:cx="29.309601"
+     inkscape:cy="26.306144"
+     inkscape:window-width="1280"
+     inkscape:window-height="651"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2545" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-32.266301,-174.31949)">
+    <path
+       d="m 39.226745,191.20313 c 0.911357,-0.0317 1.810014,-0.23548 2.652607,-0.60085 0.920882,-0.39944 1.756066,-0.98427 2.458508,-1.71989 0.702416,-0.73557 1.258438,-1.60761 1.637374,-2.56572 0.378962,-0.95808 0.573722,-1.98419 0.573696,-3.01995 -2.7e-5,-2.09082 -0.792983,-4.10036 -2.21115,-5.58549 -1.408562,-1.47503 -3.320282,-2.31291 -5.321326,-2.32508 0.70911,-0.19828 1.447615,-0.30155 2.196624,-0.30215 1.074446,0 2.138389,0.21161 3.131052,0.62277 0.992717,0.41119 1.894708,1.01386 2.654512,1.77364 0.759804,0.75977 1.362498,1.66177 1.773714,2.65446 0.411215,0.99269 0.622882,2.05668 0.622882,3.13118 0,1.07453 -0.211667,2.13852 -0.622803,3.13126 -0.411189,0.99272 -1.01391,1.89474 -1.773714,2.65454 -0.759803,0.75981 -1.661821,1.3625 -2.654538,1.77369 -0.992716,0.41119 -2.056685,0.62286 -3.131185,0.62286 z m 0,0 c 0.644604,0.16166 1.311301,0.245 1.986174,0.24527 z"
+       fill="#000000"
+       stroke="black"
+       stroke-width="1"
+       id="path4"
+       style="stroke:none" />
+    <circle
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.51615;stroke-linejoin:round;stroke-miterlimit:24"
+       id="path6019"
+       cx="41.227058"
+       cy="183.28024"
+       r="8.7026825" />
+  </g>
+</svg>

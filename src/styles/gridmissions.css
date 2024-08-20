@@ -1,0 +1,87 @@
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-container button {
+  background-color: #292954;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mission-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.mission-image {
+  position: relative;
+}
+
+.mission-image img {
+  width: 100%;
+  display: block;
+}
+
+.agency-logo {
+  position: absolute;
+  top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.mission-details {
+  padding: 15px;
+  background-color: #292954;
+  color: white;
+}
+
+.mission-details p {
+  color: gray;
+}
+
+.mission-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.pagination {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pagination span {
+  margin-right: 10px;
+}
+
+.next-page {
+  background-color: #292954;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
