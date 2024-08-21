@@ -1,7 +1,6 @@
 :root {
   --border-grid: 40px;
-  --font-size-p: 16px;
-  --description-color: #d1d5db;
+  --font-size-p: 12px;
   --border-color: #4c5df6;
 }
 
@@ -41,6 +40,7 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   border: 2px solid transparent;
+  position: relative;
 }
 
 .mission-card:hover {
@@ -71,16 +71,12 @@
 
 .mission-details {
   padding: 15px;
-  background-color: #292954;
+  background-color: #303053c4;
   color: white;
-}
-
-.mission-details p {
-  font-size: var(--font-size-p);
-  color: var(--description-color);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  position: absolute;
+  width: -moz-available;
+  bottom: 0;
+  padding: 10px;
 }
 
 .mission-info {
@@ -88,6 +84,11 @@
   justify-content: space-between;
   margin-bottom: 10px;
   font-size: var(--font-size-p);
+}
+
+.mission-details h2 {
+  font-size: 16px;
+  margin: 2px;
 }
 
 .pagination {
