@@ -19,6 +19,13 @@ button {
   transition: ease-in;
 }
 
+.button {
+  border-radius: 21px;
+  padding: 6px 10px;
+  margin: 5px;
+  transition: ease-in;
+}
+
 .button-border {
   color: var(--accent-color);
   background-color: #ffffff;

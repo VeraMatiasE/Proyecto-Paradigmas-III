@@ -1,0 +1,74 @@
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.new-discussion,
+.discussion-list {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-discussion h2,
+.discussion-list h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.new-discussion form input[type="text"],
+.new-discussion form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+.new-discussion form button {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.new-discussion form button:hover {
+  background-color: var(--accent-color);
+}
+
+.discussion {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.discussion h3 {
+  font-size: 20px;
+  margin: 0 0 5px;
+}
+
+.discussion h3 a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.discussion h3 a:hover {
+  text-decoration: underline;
+}
+
+.discussion p {
+  font-size: 14px;
+  color: var(--gray-color);
+  margin: 0;
+}
+
+.discussion:last-child {
+  border-bottom: none;
+}

@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.discussion-topic,
+.responses,
+.reply {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.discussion-topic h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.discussion-topic p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.post-content p {
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.responses h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.response {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.response:last-child {
+  border-bottom: none;
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.response-info {
+  display: flex;
+  align-items: center;
+}
+
+.response .author {
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+.response .date {
+  font-size: 12px;
+  color: var(--gray-color);
+  margin: 12px;
+}
+
+.response-content p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reply h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: -moz-available;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  min-height: 100px;
+  resize: none;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--accent-color);
+}
+
+.sub-responses {
+  margin-top: 10px;
+  padding-left: 20px;
+  border-left: 2px solid #ddd;
+}
