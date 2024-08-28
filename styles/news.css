@@ -33,7 +33,7 @@
 
 .main-article,
 .secondary-articles article {
-  background-color: var(--darker-backgroud-color);
+  background-color: var(--darker-background-color);
 }
 
 .secondary-articles {
@@ -96,7 +96,7 @@
 }
 
 .grid-item {
-  background-color: var(--darker-backgroud-color);
+  background-color: var(--darker-background-color);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

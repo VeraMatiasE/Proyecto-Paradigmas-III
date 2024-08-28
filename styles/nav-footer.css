@@ -81,7 +81,6 @@ header {
 
 .flex-center a {
   font-size: var(--font-size-nav-button);
-  border: var(--border-size-nav-button) solid;
   padding: var(--padding-top-bottom-button);
 }
 

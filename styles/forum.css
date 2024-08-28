@@ -6,7 +6,7 @@ main {
 
 .new-discussion,
 .discussion-list {
-  background-color: white;
+  background-color: var(--darker-background-color);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;

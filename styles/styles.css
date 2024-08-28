@@ -13,14 +13,14 @@
   --dark-background-color: #19191a;
   --dark-font-color: white;
   --dark-accent-color: #5959eb;
-  --dark-darker-backgroud-color: #212121;
+  --dark-darker-background-color: #212121;
   --light-gray-color: #333;
 
   /* Light Schema */
   --light-background-color: white;
   --light-font-color: black;
   --light-accent-color: #1c1c5c;
-  --light-darker-backgroud-color: #f4f4f4;
+  --light-darker-background-color: #f4f4f4;
   --light-gray-color: #c4c4c4;
 }
 
@@ -29,7 +29,7 @@
     --background-color: var(--light-background-color);
     --font-color: var(--light-font-color);
     --accent-color: var(--light-accent-color);
-    --darker-backgroud-color: var(--light-darker-backgroud-color);
+    --darker-background-color: var(--light-darker-background-color);
     --gray-color: var(--light-gray-color);
   }
 }
@@ -39,7 +39,7 @@
     --background-color: var(--dark-background-color);
     --font-color: var(--dark-font-color);
     --accent-color: var(--dark-accent-color);
-    --darker-backgroud-color: var(--dark-darker-backgroud-color);
+    --darker-background-color: var(--dark-darker-background-color);
     --gray-color: var(--dark-gray-color);
   }
 }
