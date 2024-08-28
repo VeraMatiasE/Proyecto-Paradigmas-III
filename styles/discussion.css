@@ -1,9 +1,25 @@
+:root {
+  --light-border-gray-color: #b1b1b1;
+  --dark-border-gray-color: #b3b3b3;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --border-gray-color: var(--light-border-gray-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-gray-color: var(--dark-border-gray-color);
+  }
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: var(--darker-backgroud-color);
   margin: 0;
   padding: 0;
-  color: #333;
 }
 
 main {
@@ -15,7 +31,7 @@ main {
 .discussion-topic,
 .responses,
 .reply {
-  background-color: white;
+  background-color: var(--background-color);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
@@ -29,8 +45,25 @@ main {
 
 .discussion-topic p {
   font-size: 14px;
-  color: #666;
+  color: var(--gray-color);
   margin: 5px 0;
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.post-info {
+  text-align: center;
+}
+
+.post-info p:first-child {
+  text-align: left;
+}
+
+.post-info p:last-child {
+  text-align: end;
 }
 
 .post-content p {
@@ -76,8 +109,8 @@ main {
 }
 
 .response-content p {
-  font-size: 16px;
-  margin: 0;
+  font-size: 12px;
+  margin: 5px;
   line-height: 1.5;
 }
 
@@ -88,6 +121,7 @@ main {
 
 textarea {
   width: -moz-available;
+  width: -webkit-fill-available;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -114,5 +148,14 @@ form button:hover {
 .sub-responses {
   margin-top: 10px;
   padding-left: 20px;
-  border-left: 2px solid #ddd;
+  border-left: 2px solid var(--border-gray-color);
+}
+
+.toggle-comments {
+  cursor: pointer;
+  border: none;
+}
+
+.hidden {
+  display: none;
 }

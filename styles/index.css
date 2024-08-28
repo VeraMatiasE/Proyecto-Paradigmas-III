@@ -60,6 +60,9 @@
 }
 
 /* Missions Section */
+section:nth-of-type(2) .section-content {
+  margin-top: calc(2 * var(--padding-top-bottom-button) + var(--margin-button) * 2 + 2 * var(--border-size-nav-button) + 2 * var(--padding-top-bottom-nav));
+}
 
 .section-content {
   display: flex;

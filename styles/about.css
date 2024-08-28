@@ -1,0 +1,83 @@
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.hero {
+  background-image: url("../images/EarthFromSpaceBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content {
+  background-color: #00000044;
+  padding: 30px 0px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.content h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.cta {
+  background-color: #19191a;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.cta h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.cta .btn {
+  display: inline-block;
+  background-color: #5959eb;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.cta .btn:hover {
+  background-color: #3f3fb8;
+}
+
+.about-content h2 {
+  font-size: 28px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/styles.css" />
     <link rel="stylesheet" href="../../styles/nav-footer.css" />
     <link rel="stylesheet" href="../../styles/discussion.css" />
+    <script src="../../js/forum/response.js" defer></script>
   </head>
   <body>
     <header>
@@ -36,9 +37,9 @@
       <nav>
         <ul>
           <li><a href="../missions.html">Misiones</a></li>
-          <li><a href="#">Noticias</a></li>
-          <li><a href="#">Foro</a></li>
-          <li><a href="#">Acerca de</a></li>
+          <li><a href="../news.html">Noticias</a></li>
+          <li><a href="../forum.html">Foro</a></li>
+          <li><a href="../about.html">Acerca de</a></li>
         </ul>
       </nav>
       <div class="flex-center">
@@ -53,7 +54,11 @@
     <main>
       <section class="discussion-topic">
         <h2>El Futuro de la Exploración Espacial</h2>
-        <p>Publicado por: Usuario1 | Fecha: 27 de agosto de 2024</p>
+        <div class="post-info">
+          <p>Publicado por: Usuario1 </p>
+          <p>4 Comentarios</p>
+          <p>27 de agosto de 2024</p>
+        </div>
         <div class="post-content">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
@@ -67,6 +72,7 @@
             fringilla lacinia. Curabitur volutpat interdum fringilla.
           </p>
         </div>
+
       </section>
 
       <section class="responses">
@@ -78,7 +84,7 @@
               <p class="author">Usuario2:</p>
               <p class="date">28 de agosto de 2024</p>
             </div>
-            <button class="toggle-comments">Ocultar</button>
+            <button class="toggle-comments">+</button>
           </div>
           <div class="response-content">
             <p>
@@ -94,16 +100,17 @@
               fringilla.
             </p>
           </div>
-          <form action="#" method="POST">
-            <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
+          <form class="form-reply" action="#" method="POST">
+            <textarea placeholder="Escribe tu respuesta acá..."></textarea>
             <button class="submit-reply">Enviar Respuesta</button>
           </form>
           <div class="sub-responses">
             <div class="response-header">
+              <div class="response-info">
               <p class="author">Usuario4:</p>
               <p class="date">28 de agosto de 2024</p>
-              <button class="toggle-reply">Responder</button>
-              <button class="toggle-comments">Ocultar</button>
+            </div>
+              <button class="toggle-comments">+</button>
             </div>
             <div class="response-content">
               <p>
@@ -119,6 +126,7 @@
                 volutpat interdum fringilla.
               </p>
             </div>
+            <button class="toggle-reply">Responder</button>
           </div>
         </div>
 
@@ -128,7 +136,7 @@
               <p class="author">Usuario2:</p>
               <p class="date">28 de agosto de 2024</p>
             </div>
-            <button class="toggle-comments">Ocultar</button>
+            <button class="toggle-comments">+</button>
           </div>
           <div class="response-content">
             <p>
@@ -190,10 +198,10 @@
         <div class="footer-section explore">
           <h3>Explorar</h3>
           <ul>
-            <li><a href="#">Misiones</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Foro</a></li>
-            <li><a href="#">Acerca De</a></li>
+            <li><a href="../missions.html">Misiones</a></li>
+            <li><a href="../news.html">Noticias</a></li>
+            <li><a href="../forum.html">Foro</a></li>
+            <li><a href="../about.html">Acerca De</a></li>
           </ul>
         </div>
         <div class="footer-section contact">
