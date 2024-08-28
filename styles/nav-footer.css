@@ -90,14 +90,15 @@ header {
   border-radius: 100%;
   cursor: pointer;
   transition: ease-in-out;
-}
-
-#theme-switcher img {
-  width: var(--logo-height);
+  border-radius: 50%;
 }
 
 #theme-switcher:hover {
   background-color: #69696961;
+}
+
+.theme-switcher svg {
+  fill: var(--font-color);
 }
 
 /* Logo */

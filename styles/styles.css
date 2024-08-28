@@ -96,3 +96,8 @@ h6 {
 section {
   padding: 50px 20px;
 }
+
+/* Para ocultar elementos*/
+.hidden {
+  display: none;
+}
