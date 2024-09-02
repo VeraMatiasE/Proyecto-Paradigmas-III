@@ -9,21 +9,24 @@
   --padding-button-left-right: 10px;
   --margin-button: 5px;
 
-  /* Dark Schema */
-  --dark-background-color: #19191a;
-  --dark-font-color: white;
-  --dark-accent-color: #5959eb;
-  --dark-darker-background-color: #212121;
-  --light-gray-color: #333;
-
   /* Light Schema */
   --light-background-color: white;
   --light-font-color: black;
   --light-accent-color: #1c1c5c;
   --light-darker-background-color: #f4f4f4;
   --light-gray-color: #c4c4c4;
+  --light-hover-accent-color: 0e1042;
+
+  /* Dark Theme */
+  --dark-background-color: #131320;
+  --dark-font-color: white;
+  --dark-accent-color: #ff9a47;
+  --dark-darker-background-color: #19192b;
+  --dark-gray-color: rgba(155, 155, 155, 0.64);
+  --dark-hover-accent-color: #ffc391;
 }
 
+/* Light Theme */
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: var(--light-background-color);
@@ -31,9 +34,11 @@
     --accent-color: var(--light-accent-color);
     --darker-background-color: var(--light-darker-background-color);
     --gray-color: var(--light-gray-color);
+    --hover-accent-color: var(--light-hover-accent-color);
   }
 }
 
+/* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: var(--dark-background-color);
@@ -41,7 +46,26 @@
     --accent-color: var(--dark-accent-color);
     --darker-background-color: var(--dark-darker-background-color);
     --gray-color: var(--dark-gray-color);
+    --hover-accent-color: var(--dark-hover-accent-color);
   }
+}
+
+[data-theme="dark"] {
+  --background-color: var(--dark-background-color);
+  --font-color: var(--dark-font-color);
+  --accent-color: var(--dark-accent-color);
+  --darker-background-color: var(--dark-darker-background-color);
+  --gray-color: var(--dark-gray-color);
+  --hover-accent-color: var(--dark-hover-accent-color);
+}
+
+[data-theme="light"] {
+  --background-color: var(--light-background-color);
+  --font-color: var(--light-font-color);
+  --accent-color: var(--light-accent-color);
+  --darker-background-color: var(--light-darker-background-color);
+  --gray-color: var(--light-gray-color);
+  --hover-accent-color: var(--light-hover-accent-color);
 }
 
 button {
@@ -59,6 +83,8 @@ button {
   user-select: none;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
 }
 
 .button-border {
@@ -69,18 +95,19 @@ button {
 
 .button-border:hover {
   background-color: var(--accent-color);
-  color: #ffffff;
+  color: var(--darker-background-color);
 }
 
 .button-background {
-  color: #ffffff;
+  color: var(--darker-background-color);
   background-color: var(--accent-color);
   border: 2px solid var(--accent-color);
 }
 
 .button-background:hover {
-  background-color: #ffffff;
-  color: var(--accent-color);
+  background-color: var(--hover-accent-color);
+  color: var(--darker-background-color);
+  border-color: var(--hover-accent-color);
 }
 
 h1,
