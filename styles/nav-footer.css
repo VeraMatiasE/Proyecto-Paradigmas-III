@@ -91,6 +91,7 @@ header {
   cursor: pointer;
   transition: ease-in-out;
   border-radius: 50%;
+  font-size: 0; /* Para no modificar el tamaño */
 }
 
 #theme-switcher:hover {

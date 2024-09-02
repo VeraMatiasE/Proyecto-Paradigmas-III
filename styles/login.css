@@ -5,6 +5,7 @@ body {
 
 .container {
   display: flex;
+  min-height: 100vh;
 }
 
 .image-side {
@@ -16,7 +17,7 @@ body {
 }
 
 .image-side img {
-  max-height: 60%;
+  height: 100vh;
 }
 
 .background-side {
@@ -41,8 +42,8 @@ body {
 }
 
 .login-container {
-  width: 80%;
-  max-width: 400px;
+  width: 70%;
+  max-width: 90%;
   text-align: center;
 }
 
@@ -50,6 +51,7 @@ body {
   width: 150px;
   height: auto;
   margin-bottom: 40px;
+  display: inline-block;
 }
 
 .logo-name {
@@ -62,7 +64,11 @@ body {
 }
 
 .flex-center .input-group {
-  padding: 10px;
+  width: 50%;
+}
+
+.flex-center .input-group:first-of-type {
+  padding-right: 10px;
 }
 
 .input-group {
