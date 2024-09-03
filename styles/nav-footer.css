@@ -110,10 +110,6 @@ header {
   display: block;
 }
 
-.theme-switcher svg {
-  fill: var(--font-color);
-}
-
 /* Logo */
 .logo {
   display: flex;
@@ -125,17 +121,10 @@ header {
   text-decoration: none;
 }
 
-.logo svg {
-  height: var(--logo-height);
-}
-
-.logo img {
-  width: 15%;
-}
-
 .logo .logo-name {
   margin-left: 15px;
   fill: var(--fill-logo-color);
+  height: var(--logo-height);
 }
 
 /* Navbar Elements */
