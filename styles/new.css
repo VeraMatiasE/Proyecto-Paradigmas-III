@@ -1,13 +1,4 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
 .news-article {
-  max-width: 800px;
   margin: 20px auto;
   background-color: #fff;
   border-radius: 8px;

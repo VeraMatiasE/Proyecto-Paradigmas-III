@@ -8,6 +8,9 @@
 
   --fill-logo-color: var(--font-color);
   --footer-background-color: var(--darker-background-color);
+
+  --dark-filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg)
+    brightness(103%) contrast(101%);
 }
 
 /* Para ocultar la lista del nav del header */
@@ -22,6 +25,26 @@
   nav ul li {
     display: none;
   }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --filter-img: var(--light-filter-img);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --filter-img: var(--dark-filter-img);
+  }
+}
+
+[data-theme="light"] {
+  --filter-img: var(--light-filter-img);
+}
+
+[data-theme="dark"] {
+  --filter-img: var(--dark-filter-img);
 }
 
 /* General Styles */
@@ -192,6 +215,15 @@ footer .logo .logo-name {
 .footer-section.contact .social-icons a svg {
   fill: var(--accent-color);
   padding-right: 20px;
+}
+
+.footer-section.contact .social-icons a img {
+  padding-right: 20px;
+  width: 40px;
+}
+
+.filter-img {
+  filter: var(--filter-img);
 }
 
 .footer-section.contact p {
