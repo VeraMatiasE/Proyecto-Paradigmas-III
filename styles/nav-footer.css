@@ -11,6 +11,8 @@
 
   --dark-filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg)
     brightness(103%) contrast(101%);
+
+  --light-filter-logo-name: invert();
 }
 
 /* Para ocultar la lista del nav del header */
@@ -30,21 +32,25 @@
 @media (prefers-color-scheme: light) {
   :root {
     --filter-img: var(--light-filter-img);
+    --filter-logo-name: var(--light-filter-logo-name);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --filter-img: var(--dark-filter-img);
+    --filter-logo-name: var(--dark-filter-logo-name);
   }
 }
 
 [data-theme="light"] {
   --filter-img: var(--light-filter-img);
+  --filter-logo-name: var(--light-filter-logo-name);
 }
 
 [data-theme="dark"] {
   --filter-img: var(--dark-filter-img);
+  --filter-logo-name: var(--dark-filter-logo-name);
 }
 
 /* General Styles */
@@ -125,6 +131,7 @@ header {
   margin-left: 15px;
   fill: var(--fill-logo-color);
   height: var(--logo-height);
+  filter: var(--filter-logo-name);
 }
 
 /* Navbar Elements */

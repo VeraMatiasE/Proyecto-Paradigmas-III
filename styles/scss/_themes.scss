@@ -1,0 +1,62 @@
+$colors: (
+  light: (
+    background-color: white,
+    font-color: black,
+    accent-color: #1c1c5c,
+    darker-background-color: #f4f4f4,
+    gray-color: #c4c4c4,
+    hover-accent-color: 0e1042,
+    filter-img: none,
+  ),
+  dark: (
+    background-color: #131320,
+    font-color: white,
+    accent-color: #ff9a47,
+    darker-background-color: #19192b,
+    gray-color: rgba(155, 155, 155, 0.64),
+    hover-accent-color: #ffc391,
+    filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg)
+      brightness(103%) contrast(101%),
+  ),
+);
+
+@mixin apply-theme($theme) {
+  @each $prop, $value in map-get($colors, $theme) {
+    --#{$prop}: #{$value};
+  }
+}
+
+// Light Theme
+@media (prefers-color-scheme: light) {
+  :root {
+    @include apply-theme(light);
+  }
+}
+
+// Dark Theme
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include apply-theme(dark);
+  }
+}
+
+[data-theme="light"] {
+  @include apply-theme(light);
+}
+
+[data-theme="dark"] {
+  @include apply-theme(dark);
+}
+
+// Theme switcher
+.theme-switcher {
+  &-dark,
+  &-light {
+    display: none;
+  }
+
+  [data-theme="dark"] &-dark,
+  [data-theme="light"] &-light {
+    display: block;
+  }
+}
