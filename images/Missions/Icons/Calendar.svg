@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="9.7895832mm"
+   height="11.377083mm"
+   viewBox="0 0 9.7895832 11.377083"
+   version="1.1"
+   id="svg28702"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="Calendar.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview28704"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="9.6555391"
+     inkscape:cx="5.747996"
+     inkscape:cy="25.374036"
+     inkscape:window-width="1280"
+     inkscape:window-height="651"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs28699">
+    <clipPath
+       id="clip0_66_9661">
+      <rect
+         width="37"
+         height="43"
+         fill="#ffffff"
+         transform="translate(0.5)"
+         id="rect28827"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-124.07389,-153.04215)">
+    <g
+       clip-path="url(#clip0_66_9661)"
+       id="g28825"
+       transform="matrix(0.26458333,0,0,0.26458333,123.9416,153.04215)">
+      <path
+         d="M 0.5,38.9688 C 0.5,41.1943 2.27567,43 4.46429,43 H 33.5357 C 35.7243,43 37.5,41.1943 37.5,38.9688 V 16.125 H 0.5 Z M 5.78571,22.8438 C 5.78571,22.1047 6.38036,21.5 7.10714,21.5 H 30.8929 c 0.7267,0 1.3214,0.6047 1.3214,1.3438 v 5.375 c 0,0.739 -0.5947,1.3437 -1.3214,1.3437 H 7.10714 c -0.72678,0 -1.32143,-0.6047 -1.32143,-1.3437 z M 33.5357,5.375 H 29.5714 V 1.34375 C 29.5714,0.604687 28.9768,0 28.25,0 H 25.6071 C 24.8804,0 24.2857,0.604687 24.2857,1.34375 V 5.375 H 13.7143 V 1.34375 C 13.7143,0.604687 13.1196,0 12.3929,0 H 9.75 C 9.02321,0 8.42857,0.604687 8.42857,1.34375 V 5.375 H 4.46429 C 2.27567,5.375 0.5,7.18066 0.5,9.40625 v 4.03125 h 37 V 9.40625 C 37.5,7.18066 35.7243,5.375 33.5357,5.375 Z"
+         fill="#ffffff"
+         id="path28823" />
+    </g>
+  </g>
+</svg>

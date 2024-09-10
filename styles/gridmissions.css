@@ -4,6 +4,10 @@
   --border-color: #4c5df6;
 }
 
+h1 {
+  margin-bottom: 10px;
+}
+
 .search-container {
   display: flex;
   justify-content: flex-end;
@@ -28,10 +32,8 @@
   cursor: pointer;
 }
 
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.mission-list {
+  margin: 20px;
 }
 
 .mission-card {
@@ -40,25 +42,41 @@
   overflow: hidden;
   border: 2px solid transparent;
   position: relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mission-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mission-list:hover .mission-card {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.mission-list:hover .mission-card:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .mission-link {
   text-decoration: none; /* Para que no subraye el texto */
+  display: flex;
+  color: var(--font-color);
 }
 
 .mission-image {
   position: relative;
+  width: 40%;
 }
 
 .mission-image img:first-child {
   width: 100%;
   height: 100%;
-  display: block;
+  object-fit: cover;
 }
 
 .agency-logo {
@@ -70,26 +88,43 @@
 }
 
 .mission-details {
-  padding: 15px;
-  background-color: #303053c4;
+  padding: 20px;
+  background-color: var(--darker-background-color);
   color: white;
-  position: absolute;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  bottom: 0;
-  padding: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .mission-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
   font-size: var(--font-size-p);
+  border-bottom: 3px solid var(--font-color);
 }
 
-.mission-details h2 {
-  font-size: 16px;
+.icon-info {
+  display: flex;
+  align-items: center;
+}
+
+.icon-info span {
+  font-size: 20px;
+}
+
+.icon-info img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.mission-details h3 {
+  font-size: 45px;
   margin: 2px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
 }
 
 .pagination {
@@ -108,4 +143,15 @@
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mission-link {
+    flex-direction: column;
+  }
+
+  .mission-image,
+  .mission-details {
+    width: 100%;
+  }
 }

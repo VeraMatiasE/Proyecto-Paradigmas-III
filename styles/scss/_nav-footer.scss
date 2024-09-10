@@ -1,6 +1,10 @@
 @use "styles";
 @use "variables";
 
+$nav-footer-border-size: 3px;
+$nav-footer-border-style: solid;
+$switcher-hover-background-color: #69696961;
+
 /* General Styles */
 body {
   font-family: variables.$body-font, sans-serif;
@@ -16,8 +20,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: variables.$padding-top-bottom-nav 20px;
-  background-color: var(--background-color);
-  border-bottom: 1px solid #ccc;
+  background-color: var(--darker-background-color);
+  border-bottom: $nav-footer-border-size $nav-footer-border-style #ccc;
   position: sticky;
   top: 0;
   z-index: variables.$z-index-nav;
@@ -27,11 +31,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  a {
-    font-size: variables.$font-size-nav-button;
-    padding: variables.$padding-top-bottom-button;
-  }
 }
 
 #theme-switcher {
@@ -41,10 +40,11 @@ header {
   cursor: pointer;
   transition: ease-in-out;
   border-radius: 50%;
+  padding: 5px;
   font-size: 0; /* Para no modificar el tamaño */
 
   &:hover {
-    background-color: #69696961;
+    background-color: $switcher-hover-background-color;
   }
 }
 
@@ -60,7 +60,7 @@ header {
 
   .logo-name {
     margin-left: 15px;
-    fill: var(--fill-logo-color);
+    filter: var(--filter-logo-name);
     height: variables.$logo-height;
   }
 }
@@ -88,8 +88,8 @@ nav ul {
 
 /* Footer */
 footer {
-  border-top: 3px solid black;
-  background-color: var(--footer-background-color);
+  border-top: $nav-footer-border-size $nav-footer-border-style black;
+  background-color: var(--darker-background-color);
   padding-top: 20px;
 
   .logo .logo-name {
@@ -130,6 +130,11 @@ footer {
       }
     }
   }
+}
+
+.login-button {
+  font-size: variables.$font-size-nav-button;
+  padding: variables.$padding-top-bottom-button;
 }
 
 .footer-section.contact .social-icons {

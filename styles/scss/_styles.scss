@@ -1,24 +1,24 @@
 @use "themes";
 @use "variables";
 
-button {
-  border-radius: 21px;
+$padding-sections: 50px 20px;
+$border-size-button: 21px;
+
+button,
+.button {
+  border-radius: $border-size-button;
   padding: variables.$padding-button-top-bottom
     variables.$padding-button-left-right;
   margin: variables.$margin-button;
   transition: ease-in;
+  font-weight: bold;
 }
 
-.button {
-  border-radius: 21px;
-  padding: 6px 10px;
-  margin: 5px;
-  transition: ease-in;
+a .button {
   user-select: none;
   text-decoration: none;
   cursor: pointer;
   transition: 0.3s;
-  font-weight: bold;
 }
 
 .button-border {
@@ -55,7 +55,7 @@ h6 {
 
 /* sections */
 section {
-  padding: 50px 20px;
+  padding: $padding-sections;
 }
 
 /* Para ocultar elementos*/

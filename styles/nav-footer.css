@@ -151,6 +151,10 @@ nav ul li a {
   font-family: var(--header-font), sans-serif;
 }
 
+nav ul li .current {
+  color: var(--accent-color);
+}
+
 nav ul li a:hover {
   text-decoration: underline;
 }
