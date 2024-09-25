@@ -1,0 +1,116 @@
+body {
+  background: linear-gradient(240deg, #0e1042 59.8%, #292954 95.18%);
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.image-side {
+  width: 50%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100vh;
+  }
+}
+
+.background-side {
+  width: 50%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  &:first-of-type {
+    border-radius: 0 120px 120px 0;
+  }
+
+  &:last-of-type {
+    border-radius: 120px 0 0 120px;
+  }
+}
+
+.background-side .center-image {
+  max-width: 95%;
+}
+
+.login-container {
+  width: 70%;
+  max-width: 90%;
+  text-align: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.logo-name {
+  fill: var(--font-color);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: space-between;
+
+  .input-group {
+    width: 50%;
+
+    &:first-of-type {
+      padding-right: 10px;
+    }
+  }
+}
+
+.input-group {
+  margin-top: 20px;
+  text-align: left;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--font-color);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+
+form input[type="email"],
+form input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px 0;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0e1042;
+  }
+}

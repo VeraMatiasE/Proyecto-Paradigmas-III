@@ -347,157 +347,144 @@ footer .logo .logo-name {
   font-size: 1rem;
 }
 
-html {
-  font-size: 16px;
+h1 {
+  margin-bottom: 10px;
 }
 
-@media (max-width: 1200px) {
-  html {
-    font-size: 14.4px;
-  }
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 }
-@media (max-width: 992px) {
-  html {
-    font-size: 14px;
-  }
-}
-@media (max-width: 768px) {
-  html {
-    font-size: 13px;
-  }
-}
-@media (max-width: 576px) {
-  html {
-    font-size: 12px;
-  }
-}
-@media (max-width: 370px) {
-  html {
-    font-size: 10px;
-  }
-}
-/* Mixin for animation */
-/* Introduction */
-.intro {
-  text-align: center;
-  background-image: url("../../images/SpaceBackground.webp");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 5rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-.intro h2 {
-  font-size: 3rem;
-  margin: 0;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.intro p {
-  font-size: 1.125rem;
-  margin-top: 10px;
-  line-height: 1.6;
+.search-container input[type=text] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid var(--accent-color);
 }
 
-.intro-content {
-  max-width: fit-content;
-  margin: 0 auto;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px;
+.mission-list {
+  margin: 20px;
+}
+
+.mission-card {
   border-radius: 1em;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 2px solid transparent;
+  position: relative;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mission-card:hover {
+  transform: scale(1.02);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.continue-arrow {
-  display: inline-block;
-  margin-top: 30px;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-.continue-arrow img {
-  width: 50px;
-  height: auto;
+.mission-list:hover .mission-card {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
-/* Sections */
-section:nth-of-type(2) .section-content {
-  margin-top: 46px;
+.mission-list:hover .mission-card:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.section-content {
+.mission-link {
+  text-decoration: none; /* Para que no subraye el texto */
+  display: flex;
+  color: var(--font-color);
+}
+
+.mission-image {
+  position: relative;
+  width: 40%;
+}
+.mission-image img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.agency-logo {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20%;
+  height: 20%;
+}
+
+.mission-details {
+  padding: 20px;
+  background-color: var(--darker-background-color);
+  color: var(--font-color);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mission-info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--font-color);
+}
+
+.icon-info {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  text-align: center;
-  flex-direction: column;
-  padding: 20px;
+}
+.icon-info span {
+  font-size: 1.125rem;
+}
+@media (max-width: 430px) {
+  .icon-info span {
+    display: none;
+  }
+}
+.icon-info img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  filter: var(--filter-logo-name);
 }
 
-.section-image {
-  max-width: 70%;
-  margin-bottom: 1rem;
-}
-.section-image img {
-  border-radius: 20%;
-  max-width: 100%;
-}
-
-.section-info {
-  max-width: 70%;
-  padding-left: 20px;
-}
-.section-info h3 {
-  font-size: 2.25rem;
-  margin-top: 0;
-}
-.section-info h6 {
-  font-size: 1rem;
-  margin: 0px;
-  margin: 10px 0;
-  color: var(--gray-color);
-}
-.section-info p {
-  font-size: 1rem;
-  margin: 20px 0;
+.mission-details h3 {
+  font-size: 3rem;
+  text-overflow: ellipsis;
+  overflow: clip;
+  margin: 2px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
-  section {
-    display: flex;
-    justify-content: center;
+.pagination {
+  display: inline-flex;
+  align-items: center;
+}
+.pagination span {
+  margin-right: 10px;
+}
+
+.next-page {
+  background-color: var(--accent-color);
+  color: var(--font-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mission-link {
+    flex-direction: column;
   }
-  .section-content {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-    max-width: fit-content;
-  }
-  .section-image {
-    max-width: 50%;
-    margin-bottom: 0;
-    text-align: right;
-  }
-  .section-info {
-    flex: 1;
-    padding-left: 20px;
-  }
-  section:nth-of-type(odd) .section-info {
-    order: -1;
-    padding-left: 0px;
-    padding-right: 20px;
-  }
-  section:nth-of-type(odd) .section-image {
-    text-align: left;
+  .mission-image,
+  .mission-details {
+    width: auto;
   }
 }

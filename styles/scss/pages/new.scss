@@ -1,3 +1,7 @@
+@use "../themes";
+@use "../styles";
+@use "../nav-footer";
+
 .news-article {
   margin: 20px auto;
   background-color: #fff;
@@ -14,12 +18,12 @@
 
 .news-content {
   padding: 20px;
-}
 
-.news-content h1 {
-  font-size: 28px;
-  color: #222;
-  margin-bottom: 10px;
+  h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 10px;
+  }
 }
 
 .news-meta {

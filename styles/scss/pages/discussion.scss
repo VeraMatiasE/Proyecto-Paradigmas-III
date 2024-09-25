@@ -1,0 +1,131 @@
+@use "../themes";
+@use "../styles";
+@use "../nav-footer";
+
+.discussion-topic,
+.responses,
+.reply {
+  background-color: var(--darker-background-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.discussion-topic {
+  h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 14px;
+    color: var(--gray-color);
+    margin: 5px 0;
+  }
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+
+  p:first-child {
+    text-align: left;
+  }
+
+  p:last-child {
+    text-align: end;
+  }
+}
+
+.post-content p {
+  font-size: 16px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.responses h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.response {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .author {
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+
+  .date {
+    font-size: 12px;
+    color: var(--gray-color);
+    margin: 12px;
+  }
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.response-info {
+  display: flex;
+  align-items: center;
+}
+
+.response-content p {
+  font-size: 12px;
+  margin: 5px;
+  line-height: 1.5;
+}
+
+.reply h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: -moz-available;
+  width: -webkit-fill-available;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  min-height: 100px;
+  resize: none;
+}
+
+form {
+  button {
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--accent-color);
+    }
+  }
+}
+
+.sub-responses {
+  margin-top: 10px;
+  padding-left: 20px;
+  border-left: 2px solid var(--border-gray-color);
+}
+
+.toggle-comments {
+  cursor: pointer;
+  border: none;
+}

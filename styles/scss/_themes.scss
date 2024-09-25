@@ -5,9 +5,10 @@ $colors: (
     accent-color: #1c1c5c,
     darker-background-color: #f4f4f4,
     gray-color: #c4c4c4,
-    hover-accent-color: 0e1042,
+    hover-accent-color: #0e1042,
     filter-img: none,
     filter-logo-name: invert(1),
+    border-gray-color: #b1b1b1,
   ),
   dark: (
     background-color: #131320,
@@ -19,6 +20,7 @@ $colors: (
     filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg)
       brightness(103%) contrast(101%),
     filter-logo-name: none,
+    border-gray-color: #b3b3b3,
   ),
 );
 

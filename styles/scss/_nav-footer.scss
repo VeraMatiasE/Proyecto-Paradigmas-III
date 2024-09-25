@@ -1,9 +1,13 @@
 @use "styles";
 @use "variables";
+@import "mixins/medias";
 
 $nav-footer-border-size: 3px;
 $nav-footer-border-style: solid;
 $switcher-hover-background-color: #69696961;
+
+$breakpoint-nav: 875px;
+$breakpoint-footer: 750px;
 
 /* General Styles */
 body {
@@ -19,7 +23,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: variables.$padding-top-bottom-nav 20px;
+  padding: variables.$padding-top-bottom-nav variables.$padding-left-rigth-nav;
   background-color: var(--darker-background-color);
   border-bottom: $nav-footer-border-size $nav-footer-border-style #ccc;
   position: sticky;
@@ -27,10 +31,48 @@ header {
   z-index: variables.$z-index-nav;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@mixin menu-style($order) {
+  display: none;
+  order: $order;
+  &.active {
+    display: flex;
+  }
+}
+
+@include max-width($breakpoint-nav) {
+  .top-menu {
+    padding: variables.$padding-top-bottom-nav variables.$padding-left-rigth-nav;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 0;
+    width: inherit;
+
+    li {
+      border-top: 1px solid var(--font-color);
+      padding: 1em;
+    }
+  }
+
+  #nav-links {
+    width: 100%;
+
+    @include menu-style(3);
+  }
+
+  .nav-buttons {
+    align-self: end;
+    @include menu-style(2);
+  }
 }
 
 #theme-switcher {
@@ -67,11 +109,12 @@ header {
 
 /* Navbar Elements */
 nav ul {
+  padding: 0;
   display: flex;
   list-style-type: none;
 
   li {
-    margin: 0 15px;
+    margin: 0 1em;
 
     a {
       text-decoration: none;
@@ -83,6 +126,34 @@ nav ul {
         text-decoration: underline;
       }
     }
+  }
+
+  @include max-width($breakpoint-nav) {
+    display: none;
+  }
+}
+
+button.hamburger {
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+
+  img {
+    filter: var(--filter-img);
+  }
+
+  @include min-width($breakpoint-nav) {
+    display: none;
+    order: 1;
+  }
+}
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  @include max-width($breakpoint-nav) {
+    width: 100%;
   }
 }
 
@@ -101,6 +172,11 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 0 50px;
+  flex-direction: row;
+
+  @include max-width($breakpoint-footer) {
+    flex-direction: column;
+  }
 }
 
 .footer-section {
@@ -115,6 +191,13 @@ footer {
   ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include max-width($breakpoint-footer) {
+      flex-direction: row;
+    }
 
     li {
       margin-bottom: 8px;
@@ -122,7 +205,7 @@ footer {
       a {
         color: var(--font-color);
         text-decoration: none;
-        font-size: 14px;
+        font-size: variables.$font-size-xsmall;
 
         &:hover {
           text-decoration: underline;
@@ -142,9 +225,9 @@ footer {
   gap: 10px;
   margin-bottom: 10px;
   align-items: center;
+  justify-content: space-between;
 
   a img {
-    padding-right: 20px;
     width: 40px;
   }
 }
@@ -155,7 +238,7 @@ footer {
 
 .footer-section.contact p {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: variables.$font-size-small;
 }
 
 .footer-copy {
@@ -167,6 +250,6 @@ footer {
   p {
     color: var(--accent-color);
     margin: 0;
-    font-size: 14px;
+    font-size: variables.$font-size-small;
   }
 }

@@ -15,7 +15,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .image-side img {
   height: 100vh;
 }
@@ -28,16 +27,14 @@ body {
   align-items: center;
   padding: 40px;
 }
-
 .background-side:first-of-type {
   border-radius: 0 120px 120px 0;
 }
-
 .background-side:last-of-type {
   border-radius: 120px 0 0 120px;
 }
 
-.center-image {
+.background-side .center-image {
   max-width: 95%;
 }
 
@@ -62,11 +59,9 @@ body {
   display: flex;
   justify-content: space-between;
 }
-
 .flex-center .input-group {
   width: 50%;
 }
-
 .flex-center .input-group:first-of-type {
   padding-right: 10px;
 }
@@ -75,7 +70,6 @@ body {
   margin-top: 20px;
   text-align: left;
 }
-
 .input-group label {
   display: block;
   margin-bottom: 5px;
@@ -87,9 +81,9 @@ body {
   line-height: normal;
 }
 
-form input[type="email"],
-form input[type="password"],
-input[type="text"] {
+form input[type=email],
+form input[type=password],
+input[type=text] {
   width: 100%;
   padding: 10px 0;
   margin: 10px 0;
@@ -110,7 +104,6 @@ form button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 form button:hover {
   background-color: #0e1042;
 }

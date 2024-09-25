@@ -1,3 +1,7 @@
+@use "../variables";
+@use "../themes";
+@use "../nav-footer";
+
 .container {
   width: 80%;
   margin: 20px auto;
@@ -10,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url("../images/Missions/SpaceBackground.jpg");
+  background-image: url("../../images/Missions/SpaceBackground.jpg");
   background-size: cover;
   padding: 20px;
   color: #fff;
@@ -64,10 +68,10 @@
   color: white;
   fill: white;
   padding: 20px;
-}
 
-.info hr {
-  color: white;
+  hr {
+    color: white;
+  }
 }
 
 .launch-info {
@@ -76,14 +80,14 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 20px;
-}
 
-.launch-info h2 {
-  bottom: 0;
-}
+  h2 {
+    bottom: 0;
+  }
 
-.launch-info img {
-  width: 24px;
+  img {
+    width: 24px;
+  }
 }
 
 .description,
@@ -95,16 +99,15 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-}
 
-.details table td {
-  padding: 10px;
-  border: 1px solid #555;
-}
-
-.details table td:first-child {
-  font-weight: bold;
-  width: 30%;
-  background-color: var(--accent-color);
-  color: #fff;
+  td {
+    padding: 10px;
+    border: 1px solid #555;
+    &:first-child {
+      font-weight: bold;
+      width: 30%;
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+  }
 }

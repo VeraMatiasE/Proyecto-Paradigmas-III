@@ -11,24 +11,33 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/css/index.css" />
+    <link rel='icon' href='images/favicon.ico' type='image/x-icon'/ >
     <script src="js/color-switch.js" defer></script>
     <script src="js/index.js" defer></script>
+    <script src="js/hamburger-menu.js" defer></script>
   </head>
   <body>
     <header>
-      <a href="index.html" class="logo">
-        <img src="images/Logo.svg" />
-        <img src="images/SpacePathways.svg" class="logo-name" />
-      </a>
-      <nav>
-        <ul>
+      <div class="top-menu">
+        <a href="index.html" class="logo">
+          <img src="images/Logo.svg" />
+          <img src="images/SpacePathways.svg" class="logo-name" />
+        </a>
+
+        <button class="hamburger active" id="hamburger">
+          <img src="images/Menu.svg" />
+        </button>
+      </div>
+
+      <nav id="nav-links">
+        <ul class="nav-links">
           <li><a href="pages/missions.html">Misiones</a></li>
           <li><a href="pages/news.html">Noticias</a></li>
           <li><a href="pages/forum.html">Foro</a></li>
           <li><a href="pages/about.html">Acerca de</a></li>
         </ul>
       </nav>
-      <div class="flex-center">
+      <div class="nav-buttons flex-center">
         <a id="theme-switcher" class="theme-switcher">
           <img src="images/LightMode.svg" class="theme-switcher-light" />
           <img src="images/DarkMode.svg" class="theme-switcher-dark" />
@@ -87,6 +96,9 @@
 
       <section id="forum">
         <div class="section-content">
+          <div class="section-image">
+            <img src="images/Apollo11.webp" alt="Apollo 11" />
+          </div>
           <div class="section-info">
             <h6>Discusiones</h6>
             <h3>Foro</h3>
@@ -100,9 +112,6 @@
                 >Explorar Más</a
               >
             </div>
-          </div>
-          <div class="section-image">
-            <img src="images/Apollo11.webp" alt="Apollo 11" />
           </div>
         </div>
       </section>

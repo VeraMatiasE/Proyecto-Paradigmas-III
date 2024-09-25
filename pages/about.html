@@ -10,32 +10,42 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/nav-footer.css" />
-    <link rel="stylesheet" href="../styles/about.css" />
+    <link rel="stylesheet" href="../styles/css/about.css" />
     <script src="../js/color-switch.js" defer></script>
+    <script src="../js/hamburger-menu.js" defer></script>
   </head>
   <body>
     <header>
-      <a href="../index.html" class="logo">
-        <img src="../images/Logo.svg" />
-        <img src="../images/SpacePathways.svg" class="logo-name" />
-      </a>
-      <nav>
-        <ul>
+      <div class="top-menu">
+        <a href="../index.html" class="logo">
+          <img src="../images/Logo.svg" />
+          <img src="../images/SpacePathways.svg" class="logo-name" />
+        </a>
+
+        <button class="hamburger active" id="hamburger">
+          <img src="../images/Menu.svg" />
+        </button>
+      </div>
+
+      <nav id="nav-links">
+        <ul class="nav-links">
           <li><a href="missions.html">Misiones</a></li>
           <li><a href="news.html">Noticias</a></li>
           <li><a href="forum.html">Foro</a></li>
           <li><a href="about.html">Acerca de</a></li>
         </ul>
       </nav>
-      <div class="flex-center">
+      <div class="nav-buttons flex-center">
         <a id="theme-switcher" class="theme-switcher">
           <img src="../images/LightMode.svg" class="theme-switcher-light" />
           <img src="../images/DarkMode.svg" class="theme-switcher-dark" />
         </a>
-        <a href="login/sigin.html" class="button button-border">Ingresar </a>
-        <a href="login/register.html" class="button button-background"
+        <a href="login/sigin.html" class="button button-border login-button"
+          >Ingresar
+        </a>
+        <a
+          href="login/register.html"
+          class="button button-background login-button"
           >Registrarse
         </a>
       </div>
