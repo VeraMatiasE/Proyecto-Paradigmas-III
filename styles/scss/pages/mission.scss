@@ -1,6 +1,7 @@
 @use "../variables";
 @use "../themes";
 @use "../nav-footer";
+@import "../mixins/medias";
 
 .container {
   width: 80%;
@@ -53,14 +54,17 @@
 }
 
 .rover-img {
-  width: 200px;
-  height: 200px;
+  width: 40%;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  @include max-width(850px) {
+    width: 25%;
+  }
 }
 
 .info {
@@ -110,4 +114,11 @@
       color: #fff;
     }
   }
+}
+
+canvas {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  height: 400px;
+  border: 1px solid var(--font-color);
 }
