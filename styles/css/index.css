@@ -234,6 +234,7 @@ button.hamburger {
   border-radius: 0;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 button.hamburger img {
   filter: var(--filter-img);
