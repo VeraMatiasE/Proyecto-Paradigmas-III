@@ -6,14 +6,19 @@ orbitalCanvas.height = orbitalCanvas.clientHeight;
 const orbitalCanvasWidth = orbitalCanvas.width;
 const orbitalCanvasHeight = orbitalCanvas.height;
 
+var computedStyle = getComputedStyle(orbitalCanvas);
+let accentColor = computedStyle.getPropertyValue("--accent-color");
+let fontColor = computedStyle.getPropertyValue("--font-color");
+let backgroundColor = computedStyle.getPropertyValue("--background-color");
+
 const planetImg = new Image();
 planetImg.src = "../../images/Missions/Logos/mars.svg";
 
 const satelliteImg = new Image();
 satelliteImg.src = "../../images/Missions/Icons/Satellite.svg";
 
-const planet = { x: 250, y: 250, radius: 50 };
-const satellite = { radius: 10, distance: 150 };
+const planet = { x: orbitalCanvasWidth/2, y: orbitalCanvasHeight/2, radius: orbitalCanvasWidth / 10 };
+const satellite = { radius: 10, distance: orbitalCanvasWidth / 6 };
 let angle = 0;
 let isHovered = false;
 let isOrbitHovered = false;
@@ -25,15 +30,15 @@ function drawPlanet() {
     planet.x - planet.radius,
     planet.y - planet.radius,
     planet.radius * 2,
-    planet.radius * 2
+    planet.radius * 3
   );
 }
 
-// Función para dibujar el satélite
 function drawSatellite() {
-  const x = planet.x + satellite.distance * Math.cos(angle);
-  const y = planet.y + satellite.distance * Math.sin(angle);
+  let x = planet.x + satellite.distance * Math.cos(angle);
+  let y = planet.y + satellite.distance * Math.sin(angle);
 
+  orbitalCtx.filter = computedStyle.getPropertyValue("--filter-img");
   // Dibuja el satélite
   orbitalCtx.drawImage(
     satelliteImg,
@@ -42,14 +47,17 @@ function drawSatellite() {
     satellite.radius * 2,
     satellite.radius * 2
   );
+  orbitalCtx.filter = "none";
 
   // Muestra el texto al lado del satélite si está hoverado
   if (isHovered || isOrbitHovered) {
-    const text = "Órbita: Test";
+    orbitalCtx.font = "16px sans-serif";
+    const text = "Órbita: 100 km";
     const textWidth = orbitalCtx.measureText(text).width;
     const textHeight = 20;
 
-    orbitalCtx.fillStyle = "#ff8542";
+    orbitalCtx.fillStyle = accentColor;
+
     orbitalCtx.roundRect(
       x + 15 - 5,
       y - textHeight - 10,
@@ -58,24 +66,46 @@ function drawSatellite() {
       5
     );
 
-    orbitalCtx.fillStyle = "#ffffff";
-    orbitalCtx.font = "16px sans-serif";
+    orbitalCtx.fillStyle = backgroundColor;
     orbitalCtx.fillText(text, x + 15, y - 15);
   }
 }
 
 function drawOrbit() {
-  orbitalCtx.strokeStyle = "white";
+  orbitalCtx.strokeStyle = fontColor;
   orbitalCtx.lineWidth = 2;
   orbitalCtx.beginPath();
   orbitalCtx.arc(planet.x, planet.y, satellite.distance, 0, 2 * Math.PI);
   orbitalCtx.stroke();
+
+  if (isHovered || isOrbitHovered) {
+    let endOrbit = satellite.distance - 2;
+    orbitalCtx.globalAlpha = 0.5;
+    orbitalCtx.beginPath();
+    orbitalCtx.fillStyle = accentColor;
+    orbitalCtx.arc(planet.x, planet.y, endOrbit, 0, 2 * Math.PI);
+    orbitalCtx.fill();
+    orbitalCtx.globalAlpha = 1;
+  }
 }
 
+function updateData() {
+  orbitalCanvas.width = orbitalCanvas.clientWidth;
+  orbitalCanvas.height = orbitalCanvas.clientHeight;
+  planet.x = orbitalCanvas.width/2;
+  planet.y = orbitalCanvas.height/2;
+  let newRadiusPlanet = orbitalCanvas.width / 10;
+  planet.radius = newRadiusPlanet;
+  satellite.distance = orbitalCanvas.width / 6;
+  accentColor = computedStyle.getPropertyValue("--accent-color");
+  fontColor = computedStyle.getPropertyValue("--font-color");
+  backgroundColor = computedStyle.getPropertyValue("--background-color");
+}
 function animate() {
   orbitalCtx.clearRect(0, 0, orbitalCanvas.width, orbitalCanvas.height);
-  drawPlanet();
+  updateData();
   drawOrbit();
+  drawPlanet();
   drawSatellite();
   angle += 0.01;
   requestAnimationFrame(animate);
@@ -96,8 +126,13 @@ orbitalCanvas.addEventListener("mousemove", (event) => {
   const distToOrbit = Math.abs(
     Math.hypot(mouseX - planet.x, mouseY - planet.y) - satellite.distance
   );
-  isOrbitHovered = distToOrbit < orbitWidth / 2;
+  isOrbitHovered = distToOrbit < orbitWidth;
 });
+
+// En caso de sacar el mouse antes de que se actualice el canvas
+orbitalCanvas.addEventListener("mouseout", (event) => {
+  isOrbitHovered = false;
+})
 
 CanvasRenderingContext2D.prototype.roundRect = function (
   x,
