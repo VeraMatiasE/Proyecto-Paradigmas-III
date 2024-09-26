@@ -1,17 +1,31 @@
+const formResponse = document.createElement("form");
+formResponse.action = "#";
+formResponse.classList.add("form-reply");
+formResponse.id = "Form-Response"
+const textareaResponse = document.createElement("textarea");
+textareaResponse.placeholder = "Escribe tu respuesta acá...";
+const buttonResponse = document.createElement("button");
+buttonResponse.classList.add("submit-reply");
+buttonResponse.innerText = "Enviar Respuesta";
+formResponse.appendChild(textareaResponse);
+formResponse.appendChild(buttonResponse);
+
+let currentReply = null;
+
 document.addEventListener("DOMContentLoaded", function () {
   const toggleReplyButtons = document.querySelectorAll(".toggle-reply");
 
   /* Script para el texto de respuestas */
   toggleReplyButtons.forEach((button) => {
+  document.querySelectorAll(".toggle-reply").forEach((button) => {
     button.addEventListener("click", function () {
-      const responseContent = this.parentElement.nextElementSibling;
-      const replyForm = responseContent.nextElementSibling;
-      const subResponses = replyForm.nextElementSibling;
-
-      replyForm.classList.toggle("hidden");
-      subResponses.classList.toggle("hidden");
-
-      this.textContent = this.textContent === "Ocultar" ? "Mostrar" : "Ocultar";
+      if(currentReply != null) {
+        currentReply.classList.remove("hidden");
+      }
+      textareaResponse.value = null;
+      this.classList.add("hidden");
+      this.parentElement.insertBefore(formResponse, this);
+      currentReply = this;
     });
   });
 
