@@ -13,10 +13,7 @@ formResponse.appendChild(buttonResponse);
 let currentReply = null;
 
 document.addEventListener("DOMContentLoaded", function () {
-  const toggleReplyButtons = document.querySelectorAll(".toggle-reply");
-
   /* Script para el texto de respuestas */
-  toggleReplyButtons.forEach((button) => {
   document.querySelectorAll(".toggle-reply").forEach((button) => {
     button.addEventListener("click", function () {
       if(currentReply != null) {
