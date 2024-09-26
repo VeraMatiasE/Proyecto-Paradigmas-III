@@ -1,10 +1,10 @@
 <svg width="1719" height="399" viewBox="0 0 1719 399" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="740" width="239" height="239" fill="white"/>
-<rect x="984" y="103" width="24" height="34" stroke="white" stroke-width="10"/>
-<rect x="-5" y="5" width="24" height="34" transform="matrix(-1 0 0 1 730 98)" stroke="white" stroke-width="10"/>
-<rect x="1122" y="57" width="592" height="125" stroke="white" stroke-width="10"/>
-<rect x="-5" y="5" width="592" height="125" transform="matrix(-1 0 0 1 592 52)" stroke="white" stroke-width="10"/>
-<path d="M1018 138.715V101.256L1112 59.6788V119.5V179.389L1018 138.715Z" stroke="white" stroke-width="10"/>
-<path d="M701 138.715V101.256L607 59.6788V119.5V179.389L701 138.715Z" stroke="white" stroke-width="10"/>
-<circle cx="860" cy="319" r="80" fill="white"/>
+<rect x="740" width="239" height="239" fill="black"/>
+<rect x="984" y="103" width="24" height="34" stroke="black" stroke-width="10"/>
+<rect x="-5" y="5" width="24" height="34" transform="matrix(-1 0 0 1 730 98)" stroke="black" stroke-width="10"/>
+<rect x="1122" y="57" width="592" height="125" stroke="black" stroke-width="10"/>
+<rect x="-5" y="5" width="592" height="125" transform="matrix(-1 0 0 1 592 52)" stroke="black" stroke-width="10"/>
+<path d="M1018 138.715V101.256L1112 59.6788V119.5V179.389L1018 138.715Z" stroke="black" stroke-width="10"/>
+<path d="M701 138.715V101.256L607 59.6788V119.5V179.389L701 138.715Z" stroke="black" stroke-width="10"/>
+<circle cx="860" cy="319" r="80" fill="black"/>
 </svg>
