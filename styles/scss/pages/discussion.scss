@@ -128,4 +128,7 @@ form {
 .toggle-comments {
   cursor: pointer;
   border: none;
+  background: none;
+  border: none;
+  filter: var(--filter-img);
 }
