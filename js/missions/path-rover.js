@@ -1,51 +1,61 @@
-const canvas = document.getElementById("roverCanvas");
-const ctx = canvas.getContext("2d");
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
-const canvasWidth = canvas.width;
-const canvasHeight = canvas.height;
+import $ from "https://cdn.jsdelivr.net/npm/jquery@3.7.1/+esm";
+import "https://cdn.jsdelivr.net/npm/jcanvas@23.0.0/+esm";
 
-let minLat = 0;
-let maxLat = 0;
-let minLon = 0;
-let maxLon = 0;
+$(function () {
+  const canvasPath = $("#roverCanvas");
 
-function scaleCoordinates(lon, lat) {
-  const x = ((lon - minLon) / (maxLon - minLon)) * canvasWidth;
-  const y = canvasHeight - ((lat - minLat) / (maxLat - minLat)) * canvasHeight;
-  return [x, y];
-}
+  const canvasPathWidth = canvasPath.width();
+  const canvasPathHeight = canvasPath.height();
 
-async function makeCanvas() {
-  const response = await fetch("../../pages/missions/curiosity_waypoints.json");
-  const paths = await response.json();
+  let minLat = 0;
+  let maxLat = 0;
+  let minLon = 0;
+  let maxLon = 0;
 
-  /* Obtener la latitud y longitud menor y mayor*/
-  minLat = paths[0].lat;
-  maxLat = paths[0].lat;
-  minLon = paths[0].lon;
-  maxLon = paths[0].lon;
+  function scaleCoordinates(lon, lat) {
+    const x = ((lon - minLon) / (maxLon - minLon)) * canvasPathWidth;
+    const y =
+      canvasPathHeight -
+      ((lat - minLat) / (maxLat - minLat)) * canvasPathHeight;
+    return [x, y];
+  }
 
-  paths.forEach((sol) => {
-    if (sol.lat < minLat) minLat = sol.lat;
-    if (sol.lat > maxLat) maxLat = sol.lat;
-    if (sol.lon < minLon) minLon = sol.lon;
-    if (sol.lon > maxLon) maxLon = sol.lon;
-  });
+  async function makeCanvas() {
+    const response = await fetch(
+      "../../pages/missions/curiosity_waypoints.json"
+    );
+    const paths = await response.json();
 
-  ctx.beginPath();
-  ctx.strokeStyle = "#ff9a47";
-  ctx.lineWidth = 1.5;
+    /* Obtener la latitud y longitud menor y mayor */
+    minLat = paths[0].lat;
+    maxLat = paths[0].lat;
+    minLon = paths[0].lon;
+    maxLon = paths[0].lon;
 
-  let [startX, startY] = scaleCoordinates(paths[0].lon, paths[0].lat);
-  ctx.moveTo(startX, startY);
+    paths.forEach((sol) => {
+      if (sol.lat < minLat) minLat = sol.lat;
+      if (sol.lat > maxLat) maxLat = sol.lat;
+      if (sol.lon < minLon) minLon = sol.lon;
+      if (sol.lon > maxLon) maxLon = sol.lon;
+    });
 
-  paths.forEach((sol) => {
-    const [endX, endY] = scaleCoordinates(sol.lon, sol.lat);
-    ctx.lineTo(endX, endY);
-  });
+    let [startX, startY] = scaleCoordinates(paths[0].lon, paths[0].lat);
 
-  ctx.stroke();
-}
+    const line = {
+      strokeStyle: "#ff9a47",
+      strokeWidth: 1.5,
+      x1: startX,
+      y1: startY,
+    };
 
-makeCanvas();
+    paths.forEach((sol, index) => {
+      const [endX, endY] = scaleCoordinates(sol.lon, sol.lat);
+      line["x" + (index + 2)] = endX;
+      line["y" + (index + 2)] = endY;
+    });
+
+    canvasPath.drawLine(line);
+  }
+
+  makeCanvas();
+});
