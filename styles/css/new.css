@@ -10,6 +10,7 @@
     --filter-img: none;
     --filter-logo-name: invert(1);
     --border-gray-color: #b1b1b1;
+    --error: #e70800;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
     --filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg) brightness(103%) contrast(101%);
     --filter-logo-name: none;
     --border-gray-color: #b3b3b3;
+    --error: #ff0000;
   }
 }
 [data-theme=light] {
@@ -35,6 +37,7 @@
   --filter-img: none;
   --filter-logo-name: invert(1);
   --border-gray-color: #b1b1b1;
+  --error: #e70800;
 }
 
 [data-theme=dark] {
@@ -47,6 +50,7 @@
   --filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg) brightness(103%) contrast(101%);
   --filter-logo-name: none;
   --border-gray-color: #b3b3b3;
+  --error: #ff0000;
 }
 
 .theme-switcher-dark, .theme-switcher-light {

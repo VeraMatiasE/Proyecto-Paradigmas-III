@@ -99,7 +99,9 @@ body {
   text-align: left;
 
   label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 5px;
     color: var(--font-color);
     font-family: Montserrat;
@@ -107,6 +109,12 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    user-select: none;
+
+    span {
+      color: red;
+      margin-left: auto;
+    }
   }
 }
 
@@ -114,11 +122,17 @@ form input[type="email"],
 form input[type="password"],
 input[type="text"] {
   width: 100%;
+  max-width: 100%;
   padding: 10px 0;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  padding-left: 2px;
+
+  &:focus {
+    outline: 2px solid var(--accent-color);
+  }
 }
 
 form button {
