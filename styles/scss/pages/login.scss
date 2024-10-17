@@ -151,3 +151,11 @@ form button {
     background-color: #0e1042;
   }
 }
+
+.error-dialog {
+  background-color: var(--error);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--font-color)
+}
