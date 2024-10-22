@@ -2,9 +2,9 @@
 $title = "Space PathWays";
 
 $scripts = [
-  "js/color-switch.js",
-  "js/index.js",
-  "js/hamburger-menu.js"
+  "color-switch.js",
+  "index.js",
+  "hamburger-menu.js"
 ];
 
 $styles = "index.css";
