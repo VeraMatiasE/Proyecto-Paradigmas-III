@@ -1,7 +1,7 @@
 <?php
 $title = "Acerca de - Space PathWays";
 
-$scripts = ["js/color-switch.js", "js/hamburger-menu.js"];
+$scripts = ["color-switch.js", "hamburger-menu.js"];
 
 $styles = "about.css";
 include_once "../include/head.php";
