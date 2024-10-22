@@ -73,7 +73,6 @@ h1 {
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 20%;
   height: 20%;
 }
 
@@ -149,5 +148,37 @@ h1 {
   .mission-image,
   .mission-details {
     width: auto;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 10px;
+  margin: 20px 0;
+
+  a {
+    color: var(--font-color);
+    padding: 1em;
+    margin: 0 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    &:hover:not(.active) {
+      background-color: var(--accent-color);
+      color: var(--darker-background-color);
+    }
+
+    &.active {
+      color: var(--accent-color);
+      cursor: default;
+    }
+
+    &:first-child,
+    &:last-child {
+      font-weight: bold;
+    }
   }
 }
