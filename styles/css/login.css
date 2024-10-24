@@ -166,7 +166,7 @@ body {
   }
 }
 .background-side:last-of-type {
-  border-radius: 0 120px 120px 0;
+  border-radius: 120px 0 0 120px;
 }
 @media (max-width: 600px) {
   .background-side:last-of-type {

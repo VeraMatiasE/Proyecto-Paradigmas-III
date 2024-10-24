@@ -30,8 +30,7 @@ body {
   }
 }
 
-@mixin border-radius {
-  border-radius: 0 120px 120px 0;
+@mixin border-radius() {
   @include max-width($breakpont-side) {
     width: 100%;
     border-radius: 0;
@@ -47,10 +46,12 @@ body {
   padding: 40px;
 
   &:first-of-type {
+    border-radius: 0 120px 120px 0;
     @include border-radius();
   }
 
   &:last-of-type {
+    border-radius: 120px 0 0 120px;
     @include border-radius();
   }
 }
