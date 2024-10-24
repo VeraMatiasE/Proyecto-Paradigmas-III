@@ -1,0 +1,77 @@
+@use "../styles";
+@use "../themes";
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #0a0a23, #000000);
+    color: var(--accent-color);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.error-container {
+    font-size: 10rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: var(--accent-color);
+
+    span {
+        height: auto;
+    }
+}
+
+.black-hole-container {
+    position: relative;
+    width: 150px;
+    display: inline-block;
+    transform: rotate(-25deg);
+}
+
+.accretion-disk {
+    z-index: -1;
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: calc(50% - 0.15em);
+    left: calc(50% - 0.4em);
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #ffdd00, #ffb700, #ff8000, #ff4000, #ff0000, #ff4000, #ff8000, #ffb700, #ffdd00);
+    width: 0.8em;
+    height: 0.3em;
+
+    box-shadow: 0 0 3px 0 #ffdd00, 0 0px 15px 3px #ffb700;
+
+}
+
+.black-hole {
+    width: 0.3em;
+    height: 0.15em;
+    background-color: black;
+    position: relative;
+    border-bottom: none;
+    top: calc(50% - 0.11em);
+    left: calc(50% - 0.15em);
+    border-radius: 100vw 100vw 1px 1px;
+}
+
+
+.message {
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.return {
+    margin: 30px 0;
+}

@@ -1,21 +1,27 @@
 <?php
-// 404.php
-http_response_code(404); // Establecer el código de respuesta a 404
-?>
-<!DOCTYPE html>
-<html lang="es">
+$title = "Error 404";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404 - No Encontrado</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Opcional: hoja de estilos -->
-</head>
+$scripts = [
+    "color-switch.js",
+    "errors/404-black-hole.js",
+];
+
+$styles = "error.css";
+
+$alt_font = "https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap";
+
+include_once "../../include/head.php";
+?>
 
 <body>
-    <h1>Error 404</h1>
-    <p>Lo sentimos, la página que estás buscando no existe.</p>
-    <a href="/">Volver a la página principal</a>
+    <div class="error-container">
+        4<span class="black-hole-container">
+            <div class="black-hole"></div>
+            <div class="accretion-disk" id="accretionDisk"></div>
+        </span>4
+    </div>
+    <div class="message">La página no fue encontrada.</div>
+    <a href="/" class="button-background return">Regresar al inicio</a>
 </body>
 
 </html>
