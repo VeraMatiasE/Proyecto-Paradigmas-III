@@ -6,7 +6,7 @@
     </a>
 
     <button class="hamburger active" id="hamburger">
-      <img src="/images/Menu.svg" />
+      <img src="/images/NavFooter/Menu.svg" />
     </button>
   </div>
 
@@ -20,8 +20,8 @@
   </nav>
   <div class="nav-buttons flex-center">
     <a id="theme-switcher" class="theme-switcher">
-      <img src="/images/LightMode.svg" class="theme-switcher-light" />
-      <img src="/images/DarkMode.svg" class="theme-switcher-dark" />
+      <img src="/images/NavFooter/LightMode.svg" class="theme-switcher-light" />
+      <img src="/images/NavFooter/DarkMode.svg" class="theme-switcher-dark" />
     </a>
     <a href="/pages/login/sigin.php" class="button button-border login-button">Ingresar
     </a>

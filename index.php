@@ -27,7 +27,7 @@ include_once "include/head.php";
           conversa con otros entusiastas y enterate de las últimas Novedades.
         </p>
         <a href="#space-missions" class="continue-arrow">
-          <img src="images/ContinueArrow.svg" alt="Continue Arrow" />
+          <img src="images/Index/ContinueArrow.svg" alt="Continue Arrow" />
         </a>
       </div>
     </section>
@@ -35,7 +35,7 @@ include_once "include/head.php";
     <section id="space-missions">
       <div class="section-content">
         <div class="section-image">
-          <img src="images/CuriosityRover.webp" alt="Curiosity Rover" />
+          <img src="images/Index/CuriosityRover.webp" alt="Curiosity Rover" />
         </div>
         <div class="section-info">
           <h6>Información</h6>
@@ -56,7 +56,7 @@ include_once "include/head.php";
     <section id="forum">
       <div class="section-content">
         <div class="section-image">
-          <img src="images/Apollo11.webp" alt="Apollo 11" />
+          <img src="images/Index/Apollo11.webp" alt="Apollo 11" />
         </div>
         <div class="section-info">
           <h6>Discusiones</h6>
@@ -76,7 +76,7 @@ include_once "include/head.php";
     <section id="news">
       <div class="section-content">
         <div class="section-image">
-          <img src="images/JamesWebb.webp" alt="Telescopio JamesWebb" />
+          <img src="images/Index/JamesWebb.webp" alt="Telescopio JamesWebb" />
         </div>
         <div class="section-info">
           <h6>Actualidad</h6>

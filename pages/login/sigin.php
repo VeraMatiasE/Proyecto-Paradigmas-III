@@ -35,7 +35,7 @@ include_once "../../include/head.php";
 <body>
   <div class="container">
     <div class="image-side">
-      <img src="/images/Transbordador.svg" alt="Un transbordador espacial" class="center-image" />
+      <img src="/images/Login/Transbordador.svg" alt="Un transbordador espacial" class="center-image" />
     </div>
     <div class="background-side">
       <div class="login-container">

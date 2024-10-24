@@ -87,7 +87,7 @@ include_once "../../include/head.php";
     </div>
   </div>
   <div class="image-side">
-    <img src="/images/TrasnbordadorAndEarth.svg" alt="Un transbordador espacial saliendo de la Tierra"
+    <img src="/images/Login/TransbordadorAndEarth.svg" alt="Un transbordador espacial saliendo de la Tierra"
       class="center-image" />
   </div>
 </div>
