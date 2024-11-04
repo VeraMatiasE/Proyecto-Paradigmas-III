@@ -62,11 +62,43 @@ h1 {
   position: relative;
   width: 40%;
 
-  img:first-child {
+  .image-container {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
+}
+
+.skeleton {
+  background-color: var(--darker-background-color);
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+img.lazy-load {
+  display: none;
+  width: 100%;
+  height: auto;
 }
 
 .agency-logo {

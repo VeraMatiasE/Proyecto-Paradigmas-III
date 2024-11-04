@@ -1,7 +1,7 @@
 <?php
 $title = "Misiones Espaciales";
 
-$scripts = ["color-switch.js", "hamburger-menu.js"];
+$scripts = ["color-switch.js", "hamburger-menu.js", "missions/loading-image.js"];
 
 $styles = "listmissions.css";
 include_once "../include/head.php";
@@ -55,8 +55,12 @@ include_once "../include/head.php";
             <div class="mission-card">
               <a href="missions/curiosity.html" class="mission-link">
                 <div class="mission-image">
-                  <img src="<?php echo htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
-                    alt="<?php echo htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Mission" />
+                  <div class="image-container">
+                    <div class="skeleton"></div>
+                    <img src="<?php echo htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
+                      alt="<?php echo htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Misión"
+                      class="lazy-load" />
+                  </div>
                   <img src="<?php echo htmlspecialchars($mission['logo'], ENT_QUOTES, 'UTF-8'); ?>"
                     alt=" Logo de de <?php echo htmlspecialchars($mission['agency_name'], ENT_QUOTES, 'UTF-8'); ?>"
                     class="agency-logo" />
