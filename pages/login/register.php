@@ -80,7 +80,9 @@ include_once "../../include/head.php";
         </div>
         <div class="input-group">
           <label for="password">Contraseña <span>*</span></label>
-          <input id="password" type="password" placeholder="● ● ● ● ● ● " autocomplete="on" name="password" required />
+          <input id="password" type="password" minlength="8" placeholder="● ● ● ● ● ● " autocomplete="new-password"
+            name="password" required />
+          <button type="button" id="togglePassword">Mostrar</button>
         </div>
         <button type="submit" name="register">Registrarse</button>
       </form>
