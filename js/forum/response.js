@@ -1,48 +1,94 @@
-const formResponse = document.createElement("form");
-formResponse.action = "#";
-formResponse.classList.add("form-reply");
-formResponse.id = "Form-Response"
-const textareaResponse = document.createElement("textarea");
-textareaResponse.placeholder = "Escribe tu respuesta acá...";
-const buttonResponse = document.createElement("button");
-buttonResponse.classList.add("submit-reply");
-buttonResponse.innerText = "Enviar Respuesta";
-formResponse.appendChild(textareaResponse);
-formResponse.appendChild(buttonResponse);
+import { submitComment, getSlugPost } from "./api.js";
+import { renderNewComment } from "./comment_renderer.js";
 
-let currentReply = null;
+const formResponseTemplate = createResponseForm();
+let currentForm = null;
+let currentToggleButton = null;
 
 document.addEventListener("DOMContentLoaded", function () {
-  /* Script para el texto de respuestas */
   document.querySelectorAll(".toggle-reply").forEach((button) => {
-    button.addEventListener("click", function () {
-      if(currentReply != null) {
-        currentReply.classList.remove("hidden");
-      }
-      textareaResponse.value = null;
-      this.classList.add("hidden");
-      this.parentElement.insertBefore(formResponse, this);
-      currentReply = this;
-    });
+    button.addEventListener("click", handleNewComment);
   });
 
-  /* Script para ocultar/mostrar los comentarios y las respuestas */
   document.querySelectorAll(".toggle-comments").forEach((toggle_button) => {
     toggle_button.addEventListener("click", toggleShowElement);
   });
 });
 
+export function handleNewComment() {
+  const responseContainer = this.closest(".response");
+  const commentId = responseContainer.getAttribute("data-id");
+
+  const formResponse = formResponseTemplate.cloneNode(true);
+  formResponse.dataset.commentId = commentId;
+
+  const subResponsesContainer =
+    responseContainer.querySelector(".sub-responses");
+
+  if (currentForm && currentForm !== formResponse) {
+    currentForm.classList.add("hidden");
+    currentToggleButton.classList.remove("hidden");
+  }
+
+  if (subResponsesContainer) {
+    responseContainer.insertBefore(formResponse, subResponsesContainer);
+  } else {
+    responseContainer.appendChild(formResponse);
+  }
+
+  formResponse.classList.remove("hidden");
+  currentForm = formResponse;
+  currentToggleButton = this;
+
+  this.classList.add("hidden");
+
+  formResponse.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const responseText = formResponse.querySelector("textarea").value;
+
+    try {
+      const newCommentData = await submitComment(responseText, commentId);
+      currentForm.classList.add("hidden");
+      currentToggleButton.classList.remove("hidden");
+      if (!subResponsesContainer) {
+        const newSubResponsesContainer = document.createElement("div");
+        newSubResponsesContainer.classList.add("sub-responses");
+        responseContainer.appendChild(newSubResponsesContainer);
+        renderNewComment(newCommentData, newSubResponsesContainer);
+      } else {
+        renderNewComment(newCommentData, subResponsesContainer);
+      }
+      formResponse.querySelector("textarea").value = "";
+    } catch (error) {
+      console.error("Error al enviar el comentario:", error);
+    }
+  });
+}
+
+function createResponseForm() {
+  const form = document.createElement("form");
+  form.action = "#";
+  form.classList.add("form-reply");
+
+  const textarea = document.createElement("textarea");
+  textarea.placeholder = "Escribí tu respuesta acá...";
+  form.appendChild(textarea);
+
+  const button = document.createElement("button");
+  button.classList.add("submit-reply");
+  button.innerText = "Enviar Respuesta";
+  button.type = "submit";
+  form.appendChild(button);
+
+  return form;
+}
+
 function toggleShowElement(event) {
   this.parentElement.parentElement
     .querySelectorAll(
-      ".toggle-reply,.response-content,.sub-responses,.form-reply"
+      ".toggle-reply, .response-content, .sub-responses, .form-reply"
     )
     .forEach((element) => {
-      console.log(element.classList.contains("hidden"));
-      if (element.classList.contains("hidden")) {
-        element.classList.remove("hidden");
-      } else {
-        element.classList.add("hidden");
-      }
+      element.classList.toggle("hidden");
     });
 }

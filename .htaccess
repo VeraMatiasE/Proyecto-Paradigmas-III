@@ -1,2 +1,7 @@
 ErrorDocument 404 /pages/errors/404.php
 ErrorDocument 500 /pages/errors/500.php
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^pages/forum/discussion/([a-zA-Z0-9_-]+)$ /pages/forum/discussion.php?slug=$1 [L,QSA]
+RewriteRule ^pages/forum/discussion/([a-zA-Z0-9_-]+)/comments/([0-9]+)$ /pages/forum/thread.php?slug=$1&id_comment=$2 [L,QSA]

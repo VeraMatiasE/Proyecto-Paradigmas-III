@@ -24,7 +24,8 @@
     <?php
     if (isset($scripts) && is_array($scripts)) {
         foreach ($scripts as $script) {
-            echo '<script src="/js/' . htmlspecialchars($script) . '" defer></script>' . "\n";
+            $isModule = isset($moduleScripts) ? in_array($script, $moduleScripts) : false;
+            echo '<script src="/js/' . htmlspecialchars($script) . '" ' . ($isModule ? 'type="module"' : '') . ' defer></script>' . "\n";
         }
     }
 

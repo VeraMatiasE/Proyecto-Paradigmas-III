@@ -362,6 +362,10 @@ footer .logo .logo-name {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.reply {
+  display: none;
+}
+
 .discussion-topic h2 {
   font-size: 28px;
   margin-bottom: 10px;
@@ -393,6 +397,9 @@ footer .logo .logo-name {
 .responses h3 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+.responses .back {
+  color: var(--font-color);
 }
 
 .response {
@@ -434,6 +441,55 @@ footer .logo .logo-name {
   margin-bottom: 20px;
 }
 
+.response-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.response-actions .toggle-reply {
+  background-color: #ff7d31;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.response-actions .toggle-reply:hover {
+  background-color: #fd5d00;
+}
+
+.reaction-button,
+.load-more-replies {
+  display: flex;
+  align-items: center;
+  color: var(--font-color);
+  background-color: transparent;
+  border: 1px solid var(--font-color);
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+  gap: 5px;
+}
+.reaction-button:hover:not(:disabled),
+.load-more-replies:hover:not(:disabled) {
+  background-color: var(--accent-color);
+}
+.reaction-button:disabled,
+.load-more-replies:disabled {
+  cursor: not-allowed;
+}
+.reaction-button img,
+.load-more-replies img {
+  filter: invert(100%);
+}
+.reaction-button.selected img,
+.load-more-replies.selected img {
+  filter: var(--filter-img);
+}
+
 textarea {
   width: -moz-available;
   width: -webkit-fill-available;
@@ -471,4 +527,41 @@ form button:hover {
   background: none;
   border: none;
   filter: var(--filter-img);
+}
+
+.loading-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.loading-icon img {
+  filter: drop-shadow(0 0 10px rgba(255, 125, 49, 0.6)) drop-shadow(0 0 20px rgba(255, 125, 49, 0.4)) drop-shadow(0 0 30px rgba(255, 125, 49, 0.2));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+#sentinela {
+  height: 70px;
+  margin: 10px;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(255, 191, 0, 0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.highlight {
+  animation: highlight 1s ease;
 }

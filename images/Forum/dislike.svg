@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="5.2711725mm"
+   height="5.2711725mm"
+   viewBox="0 0 5.2711725 5.2711725"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="dislike.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="9.6555391"
+     inkscape:cx="-1.5535124"
+     inkscape:cy="9.7353445"
+     inkscape:window-width="1280"
+     inkscape:window-height="651"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="plus" />
+  <defs
+     id="defs2">
+    <style
+       id="style182">.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-136.98334,-171.45864)">
+    <title
+       id="title186" />
+    <g
+       id="plus"
+       transform="matrix(0.26458333,0,0,0.26458333,135.27606,169.9984)">
+      <rect
+         style="fill:#030200;fill-opacity:1;fill-rule:evenodd;stroke-width:33.9252;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:24"
+         id="rect965"
+         width="3.5049541"
+         height="19.922543"
+         x="13.727814"
+         y="-26.375238"
+         ry="1.7754368"
+         rx="1.752477"
+         transform="rotate(90)" />
+    </g>
+  </g>
+</svg>

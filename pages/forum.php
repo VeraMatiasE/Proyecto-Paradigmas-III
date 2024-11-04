@@ -17,40 +17,56 @@ include_once "../include/head.php";
       <h2>Iniciar una Nueva Discusión</h2>
       <form action="#" method="POST">
         <input type="text" name="title" placeholder="Título de la discusión" required />
-        <textarea name="content" placeholder="Escribe aquí tu mensaje..." required></textarea>
+        <textarea name="content" placeholder="Escribe acá tu mensaje..." required></textarea>
         <button type="submit">Publicar</button>
       </form>
     </section>
 
     <section class="discussion-list">
       <h2>Temas de Discusión</h2>
-      <div class="discussion">
-        <h3>
-          <a href="forum/discussion.html">¿Cuál es la misión espacial más importante?</a>
-        </h3>
-        <p>
-          Iniciado por: Usuario1 | Respuestas: 10 | Última actualización: 27
-          de agosto de 2024
-        </p>
-      </div>
-      <div class="discussion">
-        <h3>
-          <a href="forum/discussion.html">El futuro de la exploración espacial</a>
-        </h3>
-        <p>
-          Iniciado por: Usuario2 | Respuestas: 8 | Última actualización: 26 de
-          agosto de 2024
-        </p>
-      </div>
-      <div class="discussion">
-        <h3>
-          <a href="forum/discussion.html">Impacto de las misiones robóticas en la ciencia</a>
-        </h3>
-        <p>
-          Iniciado por: Usuario3 | Respuestas: 15 | Última actualización: 25
-          de agosto de 2024
-        </p>
-      </div>
+      <?php
+      require '../include/config/database.php';
+
+      $pdo = getDatabaseConnection();
+
+      $limit = 10;
+      $offset = isset($_GET['page']) ? ($_GET['page'] - 1) * $limit : 0;
+
+      $sql = "SELECT slug, username, title, count_comments FROM posts AS p 
+                LEFT JOIN users AS u ON p.id_user = u.id_user
+                LIMIT :limit OFFSET :offset";
+      $stmt = $pdo->prepare($sql);
+      $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+      $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+      $stmt->execute();
+      $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      if ($posts) {
+        foreach ($posts as $post) {
+          ?>
+          <div class="discussion">
+            <h3>
+              <!--
+              <a href="forum/discussion.php?slug=<?php echo htmlspecialchars($post['slug'], ENT_QUOTES, 'UTF-8'); ?>">
+        -->
+              <a href="forum/discussion/<?php echo htmlspecialchars($post['slug'], ENT_QUOTES, 'UTF-8'); ?>">
+                <?php echo htmlspecialchars($post["title"], ENT_QUOTES, 'UTF-8'); ?>
+              </a>
+            </h3>
+            <p>
+              Iniciado por: <?php echo htmlspecialchars($post["username"], ENT_QUOTES, 'UTF-8') ?> | Respuestas:
+              <?php echo htmlspecialchars($post["count_comments"], ENT_QUOTES, 'UTF-8') ?> | Última
+              actualización: 27
+              de agosto de 2024
+            </p>
+          </div>
+          <?php
+        }
+      } else {
+        echo "<p>No hay temas de discusión disponibles.</p>";
+      }
+
+      ?>
     </section>
   </main>
 
