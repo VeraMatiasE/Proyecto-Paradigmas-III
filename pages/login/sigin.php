@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
       $disable_logging = true;
     }
   } elseif (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $sql_user = "SELECT id_user, password, username FROM users WHERE email = :email";
+    $sql_user = "SELECT id_user, password, username, role FROM users WHERE email = :email";
     $stmt = $pdo->prepare($sql_user);
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
       session_regenerate_id(true);
       $_SESSION['id_user'] = $user['id_user'];
       $_SESSION['username'] = $user['username'];
+      $_SESSION['role'] = $user['role'];
       header("Location: /index.php");
       exit;
     } else {
