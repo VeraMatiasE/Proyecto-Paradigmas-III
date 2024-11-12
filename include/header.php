@@ -1,6 +1,8 @@
 <?php
 session_start();
 $is_logged = isset($_SESSION["id_user"]) && $_SESSION["username"];
+$is_admin = $is_logged && ($_SESSION["role"] === "admin");
+$is_news = $is_logged && ($_SESSION["role"] === "admin" || $_SESSION["role"] === "news");
 require_once "config/config.php";
 ?>
 <header>
@@ -9,8 +11,7 @@ require_once "config/config.php";
       <img src="<?= BASE_PATH ?>/images/Logo.svg" alt="Logo" />
       <img src="<?= BASE_PATH ?>/images/SpacePathways.svg" alt="Nombre del sitio" class="logo-name" />
     </a>
-
-    <button class="hamburger active" id="hamburger">
+    <button class="hamburger" id="hamburger">
       <img src="<?= BASE_PATH ?>/images/NavFooter/Menu.svg" alt="Menu" />
     </button>
   </div>
@@ -34,7 +35,17 @@ require_once "config/config.php";
     <?php else: ?>
       <div class="user-info">
         <span class="username"><?= htmlspecialchars($_SESSION["username"]) ?></span>
-        <a href="<?= BASE_PATH ?>/pages/login/logout.php" class="button button-border logout-button">Cerrar sesión</a>
+        <button class="profile-button">▼</button>
+        <div id="profile-dropdown" class="profile-dropdown">
+          <a href="<?= BASE_PATH ?>/pages/user_forums.php">Mis Foros</a>
+          <?php if ($_SESSION["role"] === "admin" || $_SESSION["role"] === "news"): ?>
+            <a href="<?= BASE_PATH ?>/pages/user_news.php">Mis Noticias</a>
+          <?php endif; ?>
+          <?php if ($_SESSION["role"] === "admin"): ?>
+            <a href="<?= BASE_PATH ?>/pages/admin/dashboard.php">Dashboard</a>
+          <?php endif; ?>
+          <a href="<?= BASE_PATH ?>/pages/login/logout.php" class="button button-border logout-button">Cerrar sesión</a>
+        </div>
       </div>
     <?php endif; ?>
   </div>
