@@ -21,7 +21,7 @@ include_once "../include/head.php";
 
         include '../include/config/database.php';
 
-        $sql = 'SELECT m.name AS mission_name, launch_date, status, description, banner, 
+        $sql = 'SELECT m.name AS mission_name, m.slug, launch_date, description, banner, 
         my.name AS mission_type, my.logo AS logo_mission_type, co.name AS celestial_name, 
         sa.name AS agency_name, sa.logo FROM mission AS m
         LEFT JOIN celestial_object AS co ON co.id_celestial_object = m.id_celestial_object
@@ -53,37 +53,38 @@ include_once "../include/head.php";
             ?>
 
             <div class="mission-card">
-              <a href="missions/curiosity.html" class="mission-link">
+              <a href="missions/<?= $mission['slug'] ?>" class="mission-link">
                 <div class="mission-image">
                   <div class="image-container">
                     <div class="skeleton"></div>
-                    <img src="<?php echo htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
-                      alt="<?php echo htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Misión"
+                    <img src="../images/Missions/Banners/<?= htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
+                      alt="<?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Misión"
                       class="lazy-load" />
                   </div>
-                  <img src="<?php echo htmlspecialchars($mission['logo'], ENT_QUOTES, 'UTF-8'); ?>"
-                    alt=" Logo de de <?php echo htmlspecialchars($mission['agency_name'], ENT_QUOTES, 'UTF-8'); ?>"
+                  <img src="../images/SpaceAgencies/<?= htmlspecialchars($mission['logo'], ENT_QUOTES, 'UTF-8'); ?>"
+                    alt=" Logo de de <?= htmlspecialchars($mission['agency_name'], ENT_QUOTES, 'UTF-8'); ?>"
                     class="agency-logo" />
                 </div>
                 <div class="mission-details">
-                  <h3><?php echo htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                  <h3><?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?></h3>
                   <div class="mission-info">
                     <div class="icon-info">
-                      <img src="<?php echo htmlspecialchars($mission['logo_mission_type'], ENT_QUOTES, 'UTF-8'); ?>"
-                        alt="<?php echo htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?> Icon" />
-                      <span><?php echo htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      <img
+                        src="../images/Missions/Icons/<?= htmlspecialchars($mission['logo_mission_type'], ENT_QUOTES, 'UTF-8'); ?>"
+                        alt="<?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?> Icon" />
+                      <span><?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
                     <div class="icon-info">
                       <img src="/images/Missions/Icons/Planet.svg" alt="Planet Icon" />
-                      <span><?php echo htmlspecialchars($mission['celestial_name'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      <span><?= htmlspecialchars($mission['celestial_name'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
                     <div class="icon-info">
                       <img src="/images/Missions/Icons/Calendar.svg" alt="Date Icon" />
-                      <span><?php echo htmlspecialchars($mission['launch_date'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      <span><?= htmlspecialchars($mission['launch_date'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
                   </div>
                   <p>
-                    <?php echo htmlspecialchars($mission['description'], ENT_QUOTES, 'UTF-8'); ?>
+                    <?= htmlspecialchars($mission['description'], ENT_QUOTES, 'UTF-8'); ?>
                   </p>
                   <button class="button-background">Ver Más</button>
                 </div>

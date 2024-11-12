@@ -468,3 +468,39 @@ canvas {
   height: 400px;
   border: 1px solid var(--font-color);
 }
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--font-color);
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tab-content {
+  display: none;
+}
+
+.active-tab {
+  display: block;
+}
+
+.tab.active {
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.details-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.detail-item {
+  background-color: var(--darker-background-color);
+  padding: 10px;
+  border-radius: 5px;
+  width: 90%;
+}
