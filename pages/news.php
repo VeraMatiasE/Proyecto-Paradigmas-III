@@ -72,8 +72,8 @@ include_once "../include/head.php";
           <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
             <div class="image-container">
               <div class="skeleton"></div>
-              <img src="/images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
-                alt="Imagen Misión" class="lazy-load" />
+              <img src="<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>" alt="Imagen Misión"
+                class="lazy-load" />
             </div>
             <h3>
               <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
@@ -124,8 +124,7 @@ include_once "../include/head.php";
             <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
               <div class="image-container">
                 <div class="skeleton"></div>
-                <img src="/images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
-                  class="lazy-load" />
+                <img src="<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>" class="lazy-load" />
               </div>
               <h3>
                 <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
