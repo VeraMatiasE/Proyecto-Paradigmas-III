@@ -19,7 +19,7 @@ if (!$mission_info) {
 
 $title = $mission_info['name'];
 
-$scripts = ["color-switch.js", "hamburger-menu.js", "missions/path-rover.js", "missions/orbit-satellite.js", "missions/tabs.js"];
+$scripts = ["color-switch.js", "hamburger-menu.js", "missions/tabs.js"];
 
 $styles = "mission.css";
 include_once "../../include/head.php";
@@ -37,7 +37,6 @@ include_once "../../include/head.php";
                     Descripción
                 </div>
                 <div class="tab" onclick="showTab('details')">Detalles</div>
-                <div class="tab" onclick="showTab('trajectory')">Trayectoria</div>
             </div>
 
             <!-- Contenido de las pestañas -->
@@ -69,12 +68,11 @@ include_once "../../include/head.php";
                             <p><?= htmlspecialchars($mission_info['space_agency'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                         <div class="status inactive">
-                            <img src="../../images/Missions/Icons/Inactive.svg" alt="Inactive Icon" />
-                            <!--
-                            <img src="../../images/SpaceAgencies/<?= htmlspecialchars($mission_info['status_logo'], ENT_QUOTES, 'UTF-8'); ?>"
-                                alt="<?= htmlspecialchars($mission_info['status'], ENT_QUOTES, 'UTF-8'); ?> Icon" />
--->
-                            <p><?= htmlspecialchars($mission_info['status'], ENT_QUOTES, 'UTF-8'); ?></p>
+                            <div
+                                class="status-circle <?= htmlspecialchars($mission_info['status'], ENT_QUOTES, 'UTF-8'); ?>">
+                            </div>
+                            <p class="<?= htmlspecialchars($mission_info['status'], ENT_QUOTES, 'UTF-8'); ?>">
+                                <?= htmlspecialchars($mission_info['status'], ENT_QUOTES, 'UTF-8'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -131,12 +129,6 @@ include_once "../../include/head.php";
                         <strong>Logros:</strong> <?php echo htmlspecialchars($mission_details['achievements']); ?>
                     </p>
                 </div>
-            </div>
-
-            <div id="trajectory" class="tab-content">
-                <h2>Trayectoria</h2>
-                <canvas id="roverCanvas" width="400px" height="300px"></canvas>
-                <canvas id="orbitalCanvas" width="400px" height="300px"></canvas>
             </div>
         </div>
     </main>
