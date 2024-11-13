@@ -9,6 +9,7 @@
     --filter-img: none;
     --filter-logo-name: invert(1);
     --border-gray-color: #b1b1b1;
+    --error: #e70800;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -22,6 +23,7 @@
     --filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg) brightness(103%) contrast(101%);
     --filter-logo-name: none;
     --border-gray-color: #b3b3b3;
+    --error: #ff0000;
   }
 }
 [data-theme=light] {
@@ -34,6 +36,7 @@
   --filter-img: none;
   --filter-logo-name: invert(1);
   --border-gray-color: #b1b1b1;
+  --error: #e70800;
 }
 
 [data-theme=dark] {
@@ -46,6 +49,7 @@
   --filter-img: invert(72%) sepia(49%) saturate(1805%) hue-rotate(327deg) brightness(103%) contrast(101%);
   --filter-logo-name: none;
   --border-gray-color: #b3b3b3;
+  --error: #ff0000;
 }
 
 .theme-switcher-dark, .theme-switcher-light {
@@ -162,7 +166,7 @@ body {
   }
 }
 .background-side:last-of-type {
-  border-radius: 0 120px 120px 0;
+  border-radius: 120px 0 0 120px;
 }
 @media (max-width: 600px) {
   .background-side:last-of-type {
@@ -212,7 +216,9 @@ body {
   text-align: left;
 }
 .input-group label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 5px;
   color: var(--font-color);
   font-family: Montserrat;
@@ -220,17 +226,29 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  user-select: none;
+}
+.input-group label span {
+  color: red;
+  margin-left: auto;
 }
 
 form input[type=email],
 form input[type=password],
 input[type=text] {
   width: 100%;
+  max-width: 100%;
   padding: 10px 0;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  padding-left: 2px;
+}
+form input[type=email]:focus,
+form input[type=password]:focus,
+input[type=text]:focus {
+  outline: 2px solid var(--accent-color);
 }
 
 form button {
@@ -247,4 +265,12 @@ form button {
 }
 form button:hover {
   background-color: #0e1042;
+}
+
+.error-dialog {
+  background-color: var(--error);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--font-color);
 }

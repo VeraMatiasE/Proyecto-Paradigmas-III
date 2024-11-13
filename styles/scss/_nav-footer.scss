@@ -88,6 +88,10 @@ header {
   &:hover {
     background-color: $switcher-hover-background-color;
   }
+
+  @include max-width($breakpoint-nav) {
+    display: none;
+  }
 }
 
 /* Logo */
@@ -156,6 +160,111 @@ button.hamburger {
   @include max-width($breakpoint-nav) {
     width: 100%;
   }
+}
+
+.profile-button {
+  background: none;
+  border: none;
+  color: var(--font-color);
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--darker-background-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: 10;
+}
+
+
+@media (max-width: 768px) {
+  .profile-dropdown {
+    position: relative;
+    width: 90%;
+    margin-top: 10px;
+  }
+}
+
+.profile-dropdown a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--font-color);
+  text-decoration: none;
+  font-size: 0.9em;
+
+  &:not(.logout-button):hover {
+    color: var(--accent-color);
+  }
+}
+
+.user-info  {
+  margin-right: 10px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--darker-background-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  z-index: 10;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--darker-background-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: 10;
+  right: 0;
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-dropdown {
+    position: relative;
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .nav-links a, .profile-dropdown a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+}
+
+#theme-switcher:hover img {
+  filter: brightness(1.2);
 }
 
 /* Footer */

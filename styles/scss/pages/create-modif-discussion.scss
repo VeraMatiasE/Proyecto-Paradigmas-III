@@ -1,0 +1,48 @@
+@use "../variables";
+@use "../themes";
+@use "../nav-footer";
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--darker-background-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 3px solid var(--border-gray-color);
+    border-radius: 4px;
+    color: black;
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+
+.error {
+    color: var(--error-color);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

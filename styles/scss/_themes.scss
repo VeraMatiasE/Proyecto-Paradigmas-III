@@ -9,6 +9,7 @@ $colors: (
     filter-img: none,
     filter-logo-name: invert(1),
     border-gray-color: #b1b1b1,
+    error: #e70800,
   ),
   dark: (
     background-color: #131320,
@@ -21,6 +22,7 @@ $colors: (
       brightness(103%) contrast(101%),
     filter-logo-name: none,
     border-gray-color: #b3b3b3,
+    error: #ff0000,
   ),
 );
 
