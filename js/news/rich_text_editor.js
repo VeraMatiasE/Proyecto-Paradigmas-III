@@ -86,11 +86,9 @@ class RichTextEditor extends HTMLElement {
             }
         });
 
-        // Insertar elementos en el Shadow DOM
         this.shadowRoot.append(link, toolbar, editorContainer, imageInput);
     }
 
-    // Métodos para obtener y establecer el contenido del editor
     getContent() {
         return this.shadowRoot.querySelector('.editor-container').innerHTML;
     }
@@ -100,5 +98,5 @@ class RichTextEditor extends HTMLElement {
     }
 }
 
-// Registrar el componente
+
 customElements.define('rich-editor', RichTextEditor);
