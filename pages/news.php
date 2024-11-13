@@ -52,8 +52,8 @@ include_once "../include/head.php";
         <a href="news/<?= htmlspecialchars($mainNews['slug'], ENT_QUOTES, "UTF-8") ?>">
           <div class="image-container">
             <div class="skeleton"></div>
-            <img src="/images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
-              alt="Imagen Principal" class="lazy-load" />
+            <img src="<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>" alt="Imagen Principal"
+              class="lazy-load" />
           </div>
           <div class="main-article-content">
             <h2>

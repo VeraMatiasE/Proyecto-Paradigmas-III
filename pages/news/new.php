@@ -32,8 +32,7 @@ include_once "../../include/head.php";
   ?>
 
   <div class="news-article">
-    <img src="../../images/News/uploads/<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>"
-      class="banner-image" />
+    <img src="<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>" class="banner-image" />
     <div class="news-content">
       <h1><?= htmlspecialchars($new_info['title'], ENT_QUOTES, "UTF-8") ?></h1>
       <p class="news-meta"><?= htmlspecialchars($new_info['published_at'], ENT_QUOTES, "UTF-8") ?></p>

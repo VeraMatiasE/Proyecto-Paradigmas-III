@@ -1,7 +1,7 @@
 <?php
 require_once "../../include/config/session.php";
 if (!isset($_SESSION['id_user']) && $_SESSION['role'] !== "admin") {
-    header("Location: login/sigin.php");
+    header("Location: ../login/sigin.php");
     exit;
 }
 $scripts = ["color-switch.js", "hamburger-menu.js", "admin/tabs.js", "admin/delete.js"];
@@ -61,9 +61,8 @@ $pdo = getDatabaseConnection();
                                 <td><?= $mission['launch_date'] ?></td>
                                 <td><a href="../missions/edit_mission/<?= $mission['slug'] ?>"
                                         class="action-button edit-button"><img src="../../images/Admin/edit.svg"></a>
-                                    <img src="../../images/Admin/delete.svg"
-                                        class="action-button delete-button delete-mission-btn"
-                                        data-id="<?= $mission['id_mission'] ?>">
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $mission['id_mission'] ?>" data-type="mission">
                                 </td>
                             </tr>
                             <?php
@@ -96,15 +95,15 @@ $pdo = getDatabaseConnection();
                         $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($news as $new) {
                             ?>
-                            <tr>
+                            <tr id="news-<?= $new['id_new'] ?>">
                                 <td><?= $new['id_new'] ?></td>
                                 <td><?= $new['title'] ?></td>
                                 <td><?= $new['username'] ?></td>
                                 <td><?= $new['published_at'] ?></td>
                                 <td><a href="../edit_new/<?= $new['slug'] ?>" class="action-button edit-button"><img
                                             src="../../images/Admin/edit.svg"></a>
-                                    <a href="eliminar_mision.php?id=<?= $new['id_new'] ?>"
-                                        class="action-button delete-button"><img src="../../images/Admin/delete.svg"></a>
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $new['id_new'] ?>" data-type="news">
                                 </td>
                             </tr>
                             <?php
@@ -117,7 +116,6 @@ $pdo = getDatabaseConnection();
             <!-- Sección de Usuarios -->
             <section id="usuarios" class="section">
                 <h2>Usuarios</h2>
-                <a href="crear_usuario.php" class="button  button-background">Crear Nuevo Usuario</a>
                 <table>
                     <thead>
                         <tr>
@@ -136,15 +134,15 @@ $pdo = getDatabaseConnection();
                         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($users as $user) {
                             ?>
-                            <tr>
+                            <tr id="users-<?= $user['id_user'] ?>">
                                 <td><?= $user['id_user'] ?></td>
                                 <td><?= $user['username'] ?></td>
                                 <td><?= $user['email'] ?></td>
                                 <td><?= $user['role'] ?></td>
                                 <td><a href="editar_mision.php?id=<?= $user['id_user'] ?>"
                                         class="action-button edit-button"><img src="../../images/Admin/edit.svg"></a>
-                                    <a href="eliminar_mision.php?id=<?= $user['id_user'] ?>"
-                                        class="action-button delete-button"><img src="../../images/Admin/delete.svg"></a>
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $user['id_user'] ?>" data-type="users">
                                 </td>
                             </tr>
                             <?php
@@ -175,14 +173,14 @@ $pdo = getDatabaseConnection();
                         $agencies = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($agencies as $agency) {
                             ?>
-                            <tr>
+                            <tr id="space_agency-<?= $agency['id_agency'] ?>">
                                 <td><?= $agency['id_agency'] ?></td>
                                 <td><?= $agency['name'] ?></td>
                                 <td><img src="../../images/SpaceAgencies/<?= $agency['logo'] ?>"></td>
                                 <td><a href="editar_mision.php?id=<?= $agency['id_agency'] ?>"
                                         class="action-button edit-button"><img src="../../images/Admin/edit.svg"></a>
-                                    <a href="eliminar_mision.php?id=<?= $agency['id_agency'] ?>"
-                                        class="action-button delete-button"><img src="../../images/Admin/delete.svg"></a>
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $agency['id_agency'] ?>" data-type="space_agency">
                                 </td>
                             </tr>
                             <?php
@@ -213,14 +211,15 @@ $pdo = getDatabaseConnection();
                         $celestial_objects = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($celestial_objects as $celestial_object) {
                             ?>
-                            <tr>
+                            <tr id="celestial_object-<?= $celestial_object['id_celestial_object'] ?>">
                                 <td><?= $celestial_object['id_celestial_object'] ?></td>
                                 <td><?= $celestial_object['name'] ?></td>
                                 <td><img src="../../images/Missions/Logos/<?= $celestial_object['logo'] ?>"></td>
                                 <td><a href="editar_mision.php?id=<?= $celestial_object['id_celestial_object'] ?>"
                                         class="action-button edit-button"><img src="../../images/Admin/edit.svg"></a>
-                                    <a href="eliminar_mision.php?id=<?= $celestial_object['id_celestial_object'] ?>"
-                                        class="action-button delete-button"><img src="../../images/Admin/delete.svg"></a>
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $celestial_object['id_celestial_object'] ?>"
+                                        data-type="celestial_object">
                                 </td>
                             </tr>
                             <?php
@@ -251,14 +250,15 @@ $pdo = getDatabaseConnection();
                         $mission_types = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($mission_types as $mission_type) {
                             ?>
-                            <tr>
+                            <tr id="mission_type-<?= $mission_type['id_mission_type'] ?>">
                                 <td><?= $mission_type['id_mission_type'] ?></td>
                                 <td><?= $mission_type['name'] ?></td>
-                                <td><img src="../../images/Missions/Icons/<?= $mission_type['logo'] ?>"></td>
+                                <td><img src=" ../../images/Missions/Icons/<?= $mission_type['logo'] ?>">
+                                </td>
                                 <td><a href="editar_mision.php?id=<?= $mission_type['id_mission_type'] ?>"
                                         class="action-button edit-button"><img src="../../images/Admin/edit.svg"></a>
-                                    <a href="eliminar_mision.php?id=<?= $mission_type['id_mission_type'] ?>"
-                                        class="action-button delete-button"><img src="../../images/Admin/delete.svg"></a>
+                                    <img src="../../images/Admin/delete.svg" class="action-button delete-button"
+                                        data-id="<?= $mission_type['id_mission_type'] ?>" data-type="mission_type">
                                 </td>
                             </tr>
                             <?php
