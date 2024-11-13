@@ -503,6 +503,24 @@ footer .logo .logo-name {
   padding: 10px;
   border-radius: 5px;
 }
+.right .inactive .Planeado {
+  color: #FFEB3B;
+}
+.right .inactive .Lanzado {
+  color: #03A9F4;
+}
+.right .inactive .Completado {
+  color: #4CAF50;
+}
+.right .inactive .Fallida {
+  color: #F44336;
+}
+.right .inactive .En-Progreso {
+  color: #FFC107;
+}
+.right .inactive .Cancelada {
+  color: #9E9E9E;
+}
 
 .rover-img {
   width: 40%;
@@ -520,7 +538,7 @@ footer .logo .logo-name {
 }
 
 .info {
-  background: linear-gradient(0deg, #212161 0%, #212161 100%);
+  background: linear-gradient(0deg, #212161 0%, #3636ca 100%);
   color: white;
   fill: white;
   padding: 20px;
@@ -564,13 +582,6 @@ footer .logo .logo-name {
   color: #fff;
 }
 
-canvas {
-  width: -webkit-fill-available;
-  width: -moz-available;
-  height: 400px;
-  border: 1px solid var(--font-color);
-}
-
 .tabs {
   display: flex;
   border-bottom: 2px solid var(--font-color);
@@ -595,8 +606,10 @@ canvas {
 }
 
 .details-block {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .detail-item {
@@ -604,4 +617,30 @@ canvas {
   padding: 10px;
   border-radius: 5px;
   width: 90%;
+}
+
+.status-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}
+.status-circle.Planeado {
+  background-color: #FFEB3B;
+}
+.status-circle.Lanzado {
+  background-color: #03A9F4;
+}
+.status-circle.Completado {
+  background-color: #4CAF50;
+}
+.status-circle.Fallida {
+  background-color: #F44336;
+}
+.status-circle.En-Progreso {
+  background-color: #FFC107;
+}
+.status-circle.Cancelada {
+  background-color: #9E9E9E;
 }
