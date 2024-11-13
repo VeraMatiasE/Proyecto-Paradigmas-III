@@ -47,7 +47,7 @@ include_once "include/head.php";
             conocimiento del universo.
           </p>
           <div class="flex-center">
-            <a class="button button-background" href="pages/missions.html">Explorar Más</a>
+            <a class="button button-background" href="pages/missions.php">Explorar Más</a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ include_once "include/head.php";
             al día con las noticias más recientes en la comunidad espacial.
           </p>
           <div class="flex-center">
-            <a class="button button-background" href="pages/forum.html">Explorar Más</a>
+            <a class="button button-background" href="pages/forum.php">Explorar Más</a>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ include_once "include/head.php";
             hasta descubrimientos científicos, no te pierdas ninguna novedad.
           </p>
           <div class="flex-center">
-            <a class="button button-background" href="pages/news.html">Explorar Más</a>
+            <a class="button button-background" href="pages/news.php">Explorar Más</a>
           </div>
         </div>
       </div>
