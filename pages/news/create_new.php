@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "../../include/config/session.php";
 require_once '../../include/functions/role.php';
 
 if (!(userHasRole("news") || userHasRole("admin"))) {

@@ -1,0 +1,52 @@
+@use "../themes";
+@use "../styles";
+@use "../nav-footer";
+
+h1 {
+  text-align: center;
+}
+
+form {
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: var(--darker-background-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px var(--darker-background-color);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--font-color);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: -moz-available;
+  width: -webkit-fill-available;
+  padding: 10px;
+  margin-top: 5px;
+  color: black;
+  border-radius: 4px;
+  border: 3px solid white;
+  outline: none;
+
+  &:hover {
+    border: 3px solid var(--accent-color);
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  width: 100%;
+}

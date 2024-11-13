@@ -310,10 +310,6 @@ button.hamburger img {
   margin-right: 10px;
 }
 
-.user-info:hover .profile-dropdown {
-  display: block;
-}
-
 .profile-dropdown {
   display: none;
   position: absolute;
@@ -670,4 +666,19 @@ form button:hover {
 }
 .highlight {
   animation: highlight 1s ease;
+}
+
+.edit-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.edit-button:hover {
+  background-color: #666666;
 }

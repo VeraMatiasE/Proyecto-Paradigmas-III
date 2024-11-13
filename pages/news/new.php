@@ -10,14 +10,14 @@ require '../../include/config/database.php';
 
 $sql = "SELECT id_new, u.firstname, u.lastname, title, banner, content, published_at FROM news AS n
           LEFT JOIN users AS u ON u.id_user = n.id_author
-          WHERE slug = :slug";
+          WHERE slug = :slug AND n.is_deleted IS FALSE";
 
 $pdo = getDatabaseConnection();
 $stmt = $pdo->prepare($sql);
 $stmt->execute(["slug" => $slug]);
 $new_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$title = "Noticia: " . htmlspecialchars($post_info["title"], ENT_QUOTES, 'UTF-8');
+$title = "Noticia: " . htmlspecialchars($new_info["title"], ENT_QUOTES, 'UTF-8');
 
 $scripts = ["color-switch.js", "hamburger-menu.js"];
 

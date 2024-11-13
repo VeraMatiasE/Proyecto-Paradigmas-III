@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "../../include/config/session.php";
 require '../../include/config/database.php';
 
 $pdo = getDatabaseConnection();

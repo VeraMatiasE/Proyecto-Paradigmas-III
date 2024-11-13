@@ -27,6 +27,7 @@ include_once "../include/head.php";
         LEFT JOIN celestial_object AS co ON co.id_celestial_object = m.id_celestial_object
         LEFT JOIN mission_type AS my ON my.id_mission_type = m.id_mission_type
         LEFT JOIN space_agency AS sa ON sa.id_agency = m.id_agency
+        WHERE m.is_deleted IS FALSE
         LIMIT :limit OFFSET :offset';
 
         try {
@@ -75,7 +76,7 @@ include_once "../include/head.php";
                       <span><?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
                     <div class="icon-info">
-                      <img src="/images/Missions/Icons/Planet.svg" alt="Planet Icon" />
+                      <img src="<?= BASE_PATH ?>/images/Missions/Icons/Planet.svg" alt="Planet Icon" />
                       <span><?= htmlspecialchars($mission['celestial_name'], ENT_QUOTES, 'UTF-8'); ?></span>
                     </div>
                     <div class="icon-info">

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "../../include/config/session.php";
 
 if (!isset($_GET['slug'])) {
   header("Location: /pages/errors/404.php");
@@ -35,6 +35,7 @@ $id_user = $_SESSION['id_user'] ?? null;
 
 $styles = "discussion.css";
 include_once "../../include/head.php";
+include_once "../../include/functions/date.php";
 ?>
 
 <body>
@@ -44,17 +45,20 @@ include_once "../../include/head.php";
 
   <main>
     <section class="discussion-topic">
-      <h2>El Futuro de la Exploración Espacial</h2>
+      <h2><?php echo htmlspecialchars($post_info["title"], ENT_QUOTES, 'UTF-8') ?></h2>
       <div class="post-info">
         <p>Publicado por: <?php echo htmlspecialchars($post_info["username"], ENT_QUOTES, 'UTF-8') ?></p>
         <p><?php echo htmlspecialchars($post_info["count_comments"], ENT_QUOTES, 'UTF-8') ?> Comentarios</p>
-        <p>27 de agosto de 2024</p>
+        <p><?= getFormattedDate($post_info['created_at']) ?></p>
       </div>
       <div class="post-content">
         <p>
           <?php echo htmlspecialchars($post_info["description"], ENT_QUOTES, 'UTF-8') ?>
         </p>
       </div>
+      <?php if ($id_user === $post_info['id_user']): ?>
+        <a href="../edit_post/<?php echo $slug ?>" class="edit-button">Editar</a>
+      <?php endif; ?>
     </section>
 
     <section class="reply">

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "config/session.php";
 $is_logged = isset($_SESSION["id_user"]) && $_SESSION["username"];
 $is_admin = $is_logged && ($_SESSION["role"] === "admin");
 $is_news = $is_logged && ($_SESSION["role"] === "admin" || $_SESSION["role"] === "news");
@@ -37,9 +37,9 @@ require_once "config/config.php";
         <span class="username"><?= htmlspecialchars($_SESSION["username"]) ?></span>
         <button class="profile-button">▼</button>
         <div id="profile-dropdown" class="profile-dropdown">
-          <a href="<?= BASE_PATH ?>/pages/user_forums.php">Mis Foros</a>
+          <a href="<?= BASE_PATH ?>/pages/forum/user_discussions.php">Mis Foros</a>
           <?php if ($_SESSION["role"] === "admin" || $_SESSION["role"] === "news"): ?>
-            <a href="<?= BASE_PATH ?>/pages/user_news.php">Mis Noticias</a>
+            <a href="<?= BASE_PATH ?>/pages/news/user_news.php">Mis Noticias</a>
           <?php endif; ?>
           <?php if ($_SESSION["role"] === "admin"): ?>
             <a href="<?= BASE_PATH ?>/pages/admin/dashboard.php">Dashboard</a>

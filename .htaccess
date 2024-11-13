@@ -4,6 +4,9 @@ RewriteEngine On
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^pages/forum/discussion/([a-zA-Z0-9_-]+)$ /pages/forum/discussion.php?slug=$1 [L,QSA]
+RewriteRule ^pages/forum/edit_post/([a-zA-Z0-9_-]+)$ /pages/forum/edit_post.php?slug=$1 [L,QSA]
 RewriteRule ^pages/forum/discussion/([a-zA-Z0-9_-]+)/comments/([0-9]+)$ /pages/forum/thread.php?slug=$1&id_comment=$2 [L,QSA]
 RewriteRule ^pages/missions/([a-zA-Z0-9_-]+)$ /pages/missions/mission.php?slug=$1 [L,QSA]
+RewriteRule ^pages/missions/edit_mission/([a-zA-Z0-9_-]+)$ /pages/missions/edit_mission.php?slug=$1 [L,QSA]
 RewriteRule ^pages/news/([a-zA-Z0-9_-]+)$ /pages/news/new.php?slug=$1 [L,QSA]
+RewriteRule ^pages/edit_new/([a-zA-Z0-9_-]+)$ /pages/news/edit_new.php?slug=$1 [L,QSA]

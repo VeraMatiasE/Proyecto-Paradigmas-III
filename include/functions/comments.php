@@ -15,7 +15,7 @@ function getMainComments(PDO $pdo, int $id_post, int $offset = 0, int $limit = 5
             FROM comments AS c
             LEFT JOIN users AS u ON u.id_user = c.id_user
             LEFT JOIN comment_likes AS cl ON cl.id_comment = c.id_comment AND cl.id_user = :id_user
-            WHERE c.id_post = :id_post AND c.id_reply IS NULL
+            WHERE c.id_post = :id_post AND c.id_reply IS NULL AND c.is_deleted IS FALSE
             LIMIT :offset, :limit";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id_post', $id_post, PDO::PARAM_INT);
@@ -40,7 +40,7 @@ function getRepliesWithLimit(PDO $pdo, int $id_comment, int $depth = 1, int $max
             FROM comments AS c
             LEFT JOIN users AS u ON u.id_user = c.id_user
             LEFT JOIN comment_likes AS cl ON cl.id_comment = c.id_comment AND cl.id_user = :id_user
-            WHERE id_reply = :id_comment";
+            WHERE id_reply = :id_comment AND c.is_deleted IS FALSE";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
     $stmt->bindParam(':id_comment', $id_comment, PDO::PARAM_INT);
@@ -54,23 +54,8 @@ function getRepliesWithLimit(PDO $pdo, int $id_comment, int $depth = 1, int $max
     return $replies;
 }
 
-function getFormattedDate($datetime)
-{
-    try {
-        $dateTimeObj = new DateTime($datetime, new DateTimeZone('America/Argentina/Buenos_Aires'));
+include_once "date.php";
 
-        $dateFormatted = IntlDateFormatter::formatObject(
-            $dateTimeObj,
-            'eeee d MMMM y, HH:mm',
-            'es'
-        );
-
-        return htmlspecialchars(ucwords($dateFormatted), ENT_QUOTES, 'UTF-8');
-
-    } catch (Exception $e) {
-        return 'Fecha inválida';
-    }
-}
 function renderComments(array $comments, int $maxDepth = 3): void
 {
     foreach ($comments as $comment) {

@@ -13,7 +13,7 @@ if (isset($_POST['register'])) {
 
   $stmt = $pdo->prepare("SELECT EXISTS (
         SELECT 1 FROM users 
-        WHERE username = :username OR email = :email
+        WHERE username = :username OR email = :email AND is_deleted IS FALSE
     ) AS user_exists");
   $stmt->execute(['username' => $username, 'email' => $email]);
   $user_exists = $stmt->fetchColumn();

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "../../include/config/session.php";
 
 require_once '../../include/functions/role.php';
 if (!(userHasRole("news") || userHasRole("admin"))) {
@@ -34,7 +34,7 @@ include_once "../../include/head.php";
         <input type="text" name="title" value="<?= htmlspecialchars($new_info['title'], ENT_QUOTES, 'UTF-8') ?>">
         <br>
         <label for="banner">Imagen de Banner</label>
-        <img src="../../images/News/uploads/<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>"
+        <img src="../../../images/News/uploads/<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>"
             class="banner-image" />
         <input type="file" name="banner" id="banner" accept="image/*">
         <br>

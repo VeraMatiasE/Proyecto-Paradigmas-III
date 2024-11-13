@@ -71,7 +71,8 @@ class RichTextEditor extends HTMLElement {
                 imgElement.src = imageUrl;
                 imgElement.classList.add('preview');
 
-                const selection = window.getSelection();
+                const rootSelection = window.navigator.userAgent.toLowerCase().includes("chrome")?this.shadowRoot:window;
+                const selection = rootSelection.getSelection();
                 const range = selection.getRangeAt(0);
                 range.deleteContents();
                 range.insertNode(imgElement);

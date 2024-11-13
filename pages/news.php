@@ -27,10 +27,10 @@ include_once "../include/head.php";
                     ELSE "secondary" 
                  END AS news_type
           FROM (
-              SELECT title, banner, slug, ROW_NUMBER() OVER (ORDER BY published_at DESC) AS rn
+              SELECT title, banner, slug, is_deleted, ROW_NUMBER() OVER (ORDER BY published_at DESC) AS rn
               FROM news
           ) AS subquery
-          WHERE rn <= 4
+          WHERE rn <= 4 AND is_deleted IS FALSE
           ORDER BY rn
         ';
 
@@ -43,24 +43,26 @@ include_once "../include/head.php";
       exit;
     }
     ?>
-    <div class="main-article">
-      <?php
-      $mainNews = array_filter($newsItems, fn($item) => $item['news_type'] === 'main');
-      $mainNews = reset($mainNews);
-      ?>
-      <a href="news/<?= htmlspecialchars($mainNews['slug'], ENT_QUOTES, "UTF-8") ?>">
-        <div class="image-container">
-          <div class="skeleton"></div>
-          <img src="/images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
-            alt="Imagen Principal" class="lazy-load" />
-        </div>
-        <div class="main-article-content">
-          <h2>
-            <?= htmlspecialchars($mainNews['title'], ENT_QUOTES, "UTF-8") ?>
-          </h2>
-        </div>
-      </a>
-    </div>
+    <?php if (!empty($newsItems)): ?>
+      <div class="main-article">
+        <?php
+        $mainNews = array_filter($newsItems, fn($item) => $item['news_type'] === 'main');
+        $mainNews = reset($mainNews);
+        ?>
+        <a href="news/<?= htmlspecialchars($mainNews['slug'], ENT_QUOTES, "UTF-8") ?>">
+          <div class="image-container">
+            <div class="skeleton"></div>
+            <img src="/images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
+              alt="Imagen Principal" class="lazy-load" />
+          </div>
+          <div class="main-article-content">
+            <h2>
+              <?= htmlspecialchars($mainNews['title'], ENT_QUOTES, "UTF-8") ?>
+            </h2>
+          </div>
+        </a>
+      </div>
+    <?php endif ?>
     <div class="secondary-articles">
       <?php
       $secondaryNews = array_filter($newsItems, fn($item) => $item['news_type'] === 'secondary');
@@ -93,6 +95,7 @@ include_once "../include/head.php";
 
       $sql = 'SELECT title, banner, slug
               FROM news AS n
+              WHERE is_deleted IS FALSE
               LIMIT :limit OFFSET :offset';
 
       try {
