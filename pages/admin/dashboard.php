@@ -157,7 +157,7 @@ $pdo = getDatabaseConnection();
             <!-- Sección de Agencias Espaciales -->
             <section id="space_agency" class="section">
                 <h2>Agencias Espaciales</h2>
-                <a href="crear_agencia.php" class="button  button-background">Crear Nueva Agencia</a>
+                <a href="add/add_space_agency.php" class="button  button-background">Crear Nueva Agencia</a>
                 <table>
                     <thead>
                         <tr>
@@ -195,7 +195,7 @@ $pdo = getDatabaseConnection();
             <!-- Sección de Objetos Celestes -->
             <section id="celestial_object" class="section">
                 <h2>Objetos Celestes</h2>
-                <a href="crear_objeto_celeste.php" class="button  button-background">Crear Nuevo Objeto Celeste</a>
+                <a href="add/add_celestial_object.php" class="button  button-background">Crear Nuevo Objeto Celeste</a>
                 <table>
                     <thead>
                         <tr>
@@ -234,7 +234,7 @@ $pdo = getDatabaseConnection();
             <!-- Sección de Tipos de Misión -->
             <section id="mission_type" class="section">
                 <h2>Tipos de Misión</h2>
-                <a href="crear_tipo_mision.php" class="button  button-background">Crear Nuevo Tipo de Misión</a>
+                <a href="add/add_mission_type.php" class="button  button-background">Crear Nuevo Tipo de Misión</a>
                 <table>
                     <thead>
                         <tr>
