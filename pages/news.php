@@ -52,7 +52,7 @@ include_once "../include/head.php";
         <a href="news/<?= htmlspecialchars($mainNews['slug'], ENT_QUOTES, "UTF-8") ?>">
           <div class="image-container">
             <div class="skeleton"></div>
-            <img src="../../images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
+            <img src="../images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
               alt="Imagen Principal" class="lazy-load" />
           </div>
           <div class="main-article-content">
@@ -72,7 +72,7 @@ include_once "../include/head.php";
           <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
             <div class="image-container">
               <div class="skeleton"></div>
-              <img src="../../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
+              <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
                 alt="Imagen Misión" class="lazy-load" />
             </div>
             <h3>
@@ -124,7 +124,7 @@ include_once "../include/head.php";
             <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
               <div class="image-container">
                 <div class="skeleton"></div>
-                <img src="../../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
+                <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
                   class="lazy-load" />
               </div>
               <h3>
