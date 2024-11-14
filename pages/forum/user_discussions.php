@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_user'])) {
 
 $title = "Mis Publicaciones en el Foro";
 $styles = "forum-new-list.css";
-$scripts = ["color-switch.js", "hamburger-menu.js"];
+$scripts = ["color-switch.js", "hamburger-menu.js", "forum/delete_discussion.js"];
 
 
 include_once "../../include/head.php";
@@ -37,11 +37,11 @@ $pdo = getDatabaseConnection();
             $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($posts as $post) {
                 ?>
-                <div class="forum-post">
+                <div class="forum-post" id="post-<?= $post['slug'] ?>">
                     <h2><a href="<?= $post['slug'] ?>"><?= $post['title'] ?></a></h2>
                     <p><?= $post['count_comments'] ?> comentarios</p>
                     <a href="edit_post/<?= $post['slug'] ?>" class="button edit">Editar</a>
-                    <a href="delete_post/<?= $post['slug'] ?>" class="button delete">Eliminar</a>
+                    <a class="button delete" data-slug="<?= $post['slug'] ?>">Eliminar</a>
                 </div>
                 <?php
             }
