@@ -49,7 +49,7 @@ include_once "../../include/head.php";
     <main>
         <section class="responses">
             <h3>Hilo Completo</h3>
-            <a class="back" href="/pages/forum/discussion/<?= htmlspecialchars($slug) ?>">«Volver a la discusión
+            <a class="back" href="../../<?= htmlspecialchars($slug) ?>">«Volver a la discusión
                 principal»</a>
             <?php
             if (!empty($mainComment)) {
