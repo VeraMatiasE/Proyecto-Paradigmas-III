@@ -52,7 +52,7 @@ function htmlToJson($html)
     return json_encode($jsonContent, JSON_UNESCAPED_UNICODE);
 }
 
-function jsonToHtml($json)
+function jsonToHtml($json, $baseImagePath = null)
 {
     $dom = new DOMDocument();
     $dom->preserveWhiteSpace = false;
@@ -63,11 +63,16 @@ function jsonToHtml($json)
     $htmlElement->appendChild($bodyElement);
     $dom->appendChild($htmlElement);
 
-    $convertNode = function ($node, $parentNode) use ($dom, &$convertNode) {
+    $convertNode = function ($node, $parentNode) use ($dom, &$convertNode, $baseImagePath) {
         if (is_array($node)) {
             if (isset($node['tag'])) {
                 $tag = $node['tag'];
                 $newElement = $dom->createElement($tag);
+
+                if ($baseImagePath != null && $tag === 'img' && isset($node['attributes']['src'])) {
+                    $imagePath = $node['attributes']['src'];
+                    $node['attributes']['src'] = rtrim($baseImagePath, '/') . '/' . ltrim($imagePath, '/');
+                }
 
                 if (isset($node['attributes']) && is_array($node['attributes'])) {
                     foreach ($node['attributes'] as $attrName => $attrValue) {

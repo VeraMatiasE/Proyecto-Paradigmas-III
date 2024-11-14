@@ -28,9 +28,9 @@ include_once "../include/head.php";
                  END AS news_type
           FROM (
               SELECT title, banner, slug, is_deleted, ROW_NUMBER() OVER (ORDER BY published_at DESC) AS rn
-              FROM news
+              FROM news WHERE is_deleted IS FALSE
           ) AS subquery
-          WHERE rn <= 4 AND is_deleted IS FALSE
+          WHERE rn <= 3
           ORDER BY rn
         ';
 
@@ -52,8 +52,8 @@ include_once "../include/head.php";
         <a href="news/<?= htmlspecialchars($mainNews['slug'], ENT_QUOTES, "UTF-8") ?>">
           <div class="image-container">
             <div class="skeleton"></div>
-            <img src="<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>" alt="Imagen Principal"
-              class="lazy-load" />
+            <img src="../images/News/uploads/<?= htmlspecialchars($mainNews['banner'], ENT_QUOTES, "UTF-8") ?>"
+              alt="Imagen Principal" class="lazy-load" />
           </div>
           <div class="main-article-content">
             <h2>
@@ -72,8 +72,8 @@ include_once "../include/head.php";
           <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
             <div class="image-container">
               <div class="skeleton"></div>
-              <img src="<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>" alt="Imagen Misión"
-                class="lazy-load" />
+              <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
+                alt="Imagen Misión" class="lazy-load" />
             </div>
             <h3>
               <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
@@ -118,20 +118,25 @@ include_once "../include/head.php";
         $stmt->execute();
         $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($news as $new) {
-          ?>
-          <article class="grid-item">
-            <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
-              <div class="image-container">
-                <div class="skeleton"></div>
-                <img src="<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>" class="lazy-load" />
-              </div>
-              <h3>
-                <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
-              </h3>
-            </a>
-          </article>
-          <?php
+        if (empty($news)) {
+          echo "<p class='no-news'>No hay noticias disponibles en este momento.</p>";
+        } else {
+          foreach ($news as $new) {
+            ?>
+            <article class="grid-item">
+              <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
+                <div class="image-container">
+                  <div class="skeleton"></div>
+                  <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
+                    class="lazy-load" />
+                </div>
+                <h3>
+                  <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
+                </h3>
+              </a>
+            </article>
+            <?php
+          }
         }
         ;
       } catch (PDOException $e) {

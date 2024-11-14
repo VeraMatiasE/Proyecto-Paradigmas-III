@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_user']) || $_SESSION['role'] !== "admin") {
 
 $scripts = ["color-switch.js", "hamburger-menu.js", "missions/submit_mission.js"];
 $title = "Crear Nueva Misión Espacial";
-$styles = "create-modif-mission.css";
+$styles = "create-modif-admin.css";
 
 include_once "../../include/head.php";
 

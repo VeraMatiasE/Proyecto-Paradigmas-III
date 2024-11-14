@@ -50,48 +50,52 @@ include_once "../include/head.php";
           $stmt->execute();
           $missions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-          foreach ($missions as $mission) {
-            ?>
+          if (empty($missions)) {
+            echo "<p>No hay misiones disponibles en este momento.</p>";
+          } else {
+            foreach ($missions as $mission) {
+              ?>
 
-            <div class="mission-card">
-              <a href="missions/<?= $mission['slug'] ?>" class="mission-link">
-                <div class="mission-image">
-                  <div class="image-container">
-                    <div class="skeleton"></div>
-                    <img src="../images/Missions/Banners/<?= htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
-                      alt="<?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Misión"
-                      class="lazy-load" />
+              <div class="mission-card">
+                <a href="missions/<?= $mission['slug'] ?>" class="mission-link">
+                  <div class="mission-image">
+                    <div class="image-container">
+                      <div class="skeleton"></div>
+                      <img src="../images/Missions/Banners/<?= htmlspecialchars($mission['banner'], ENT_QUOTES, 'UTF-8'); ?>"
+                        alt="<?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?> Misión"
+                        class="lazy-load" />
+                    </div>
+                    <img src="../images/SpaceAgencies/<?= htmlspecialchars($mission['logo'], ENT_QUOTES, 'UTF-8'); ?>"
+                      alt=" Logo de de <?= htmlspecialchars($mission['agency_name'], ENT_QUOTES, 'UTF-8'); ?>"
+                      class="agency-logo" />
                   </div>
-                  <img src="../images/SpaceAgencies/<?= htmlspecialchars($mission['logo'], ENT_QUOTES, 'UTF-8'); ?>"
-                    alt=" Logo de de <?= htmlspecialchars($mission['agency_name'], ENT_QUOTES, 'UTF-8'); ?>"
-                    class="agency-logo" />
-                </div>
-                <div class="mission-details">
-                  <h3><?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?></h3>
-                  <div class="mission-info">
-                    <div class="icon-info">
-                      <img
-                        src="../images/Missions/Icons/<?= htmlspecialchars($mission['logo_mission_type'], ENT_QUOTES, 'UTF-8'); ?>"
-                        alt="<?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?> Icon" />
-                      <span><?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?></span>
+                  <div class="mission-details">
+                    <h3><?= htmlspecialchars($mission['mission_name'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <div class="mission-info">
+                      <div class="icon-info">
+                        <img
+                          src="../images/Missions/Icons/<?= htmlspecialchars($mission['logo_mission_type'], ENT_QUOTES, 'UTF-8'); ?>"
+                          alt="<?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?> Icon" />
+                        <span><?= htmlspecialchars($mission['mission_type'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      </div>
+                      <div class="icon-info">
+                        <img src="<?= BASE_PATH ?>/images/Missions/Icons/Planet.svg" alt="Planet Icon" />
+                        <span><?= htmlspecialchars($mission['celestial_name'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      </div>
+                      <div class="icon-info">
+                        <img src="/images/Missions/Icons/Calendar.svg" alt="Date Icon" />
+                        <span><?= htmlspecialchars($mission['launch_date'], ENT_QUOTES, 'UTF-8'); ?></span>
+                      </div>
                     </div>
-                    <div class="icon-info">
-                      <img src="<?= BASE_PATH ?>/images/Missions/Icons/Planet.svg" alt="Planet Icon" />
-                      <span><?= htmlspecialchars($mission['celestial_name'], ENT_QUOTES, 'UTF-8'); ?></span>
-                    </div>
-                    <div class="icon-info">
-                      <img src="/images/Missions/Icons/Calendar.svg" alt="Date Icon" />
-                      <span><?= htmlspecialchars($mission['launch_date'], ENT_QUOTES, 'UTF-8'); ?></span>
-                    </div>
+                    <p>
+                      <?= htmlspecialchars($mission['description'], ENT_QUOTES, 'UTF-8'); ?>
+                    </p>
+                    <button class="button-background">Ver Más</button>
                   </div>
-                  <p>
-                    <?= htmlspecialchars($mission['description'], ENT_QUOTES, 'UTF-8'); ?>
-                  </p>
-                  <button class="button-background">Ver Más</button>
-                </div>
-              </a>
-            </div>
-            <?php
+                </a>
+              </div>
+              <?php
+            }
           }
           ;
         } catch (PDOException $e) {

@@ -24,7 +24,7 @@ export function handleReaction() {
     const commentId = this.dataset.commentId;
     const likeType = this.classList.contains('like-button') ? 'like' : 'dislike';
 
-    fetch('/api/forum/likes_dislikes.php', {
+    fetch(`${BASE_PATH}/api/forum/likes_dislikes.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id_comment: commentId, like_type: likeType })

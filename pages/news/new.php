@@ -32,15 +32,25 @@ include_once "../../include/head.php";
   ?>
 
   <div class="news-article">
-    <img src="<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>" class="banner-image" />
+    <img src="../../images/News/uploads/<?= htmlspecialchars($new_info['banner'], ENT_QUOTES, "UTF-8") ?>"
+      class="banner-image" />
     <div class="news-content">
       <h1><?= htmlspecialchars($new_info['title'], ENT_QUOTES, "UTF-8") ?></h1>
-      <p class="news-meta"><?= htmlspecialchars($new_info['published_at'], ENT_QUOTES, "UTF-8") ?></p>
+      <div class="news-meta">
+        <span class="author">
+          <?= htmlspecialchars($new_info['firstname'], ENT_QUOTES, "UTF-8") ?>
+          <?= htmlspecialchars($new_info['lastname'], ENT_QUOTES, "UTF-8") ?>
+        </span>
+        <span class="separator">|</span>
+        <span class="date">
+          <?= htmlspecialchars($new_info['published_at'], ENT_QUOTES, "UTF-8") ?>
+        </span>
+      </div>
       <p class="news-text">
         <?php
         require_once "../../include/functions/news_html.php";
         $json_content = json_decode($new_info['content'], true);
-        echo jsonToHtml($json_content);
+        echo jsonToHtml($json_content, '../../images/News/uploads/');
         ?>
       </p>
     </div>

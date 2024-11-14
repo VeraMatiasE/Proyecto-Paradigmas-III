@@ -10,8 +10,7 @@ function uploadImages($images, $uploadDir, $isBanner = false)
         $targetImg = "$uploadDir/$filename";
 
         if (move_uploaded_file($imgTmp, $targetImg)) {
-            $absolutePath = preg_replace('#^(\.\./)+#', '/', $targetImg);
-            $imageUrls[] = $absolutePath;
+            $imageUrls[] = $filename;
         }
     }
     return $imageUrls;

@@ -545,6 +545,11 @@ img.lazy-load {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.main-article img {
+  height: auto;
+  width: auto;
+  object-fit: cover;
+}
 
 .main-article-content {
   padding: 15px;
@@ -603,6 +608,9 @@ img.lazy-load {
   gap: 20px;
   padding: 20px;
   background-color: var(--background-color);
+}
+.news-grid p.no-news {
+  text-align: center;
 }
 
 .grid-item {

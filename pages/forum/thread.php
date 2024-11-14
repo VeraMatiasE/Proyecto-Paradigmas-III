@@ -18,7 +18,7 @@ $pdo = getDatabaseConnection();
 const MAX_COMMENTS = 7;
 const MAX_DEPTH = 4;
 
-$sql = "SELECT c.id_comment, id_reply, like_count, dislike_count, u.username, content,
+$sql = "SELECT c.id_comment, id_reply, like_count, dislike_count, u.username, content, created_at,
             IFNULL(cl.like_type, '') AS user_reaction
         FROM comments AS c
         LEFT JOIN users AS u ON u.id_user = c.id_user
@@ -31,6 +31,7 @@ $mainComment = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $title = "Hilo Completo";
 
+$relative_path_scripts = "../../../../..";
 $baseScripts = ["forum/response.js", "forum/load_replies.js", "color-switch.js", "hamburger-menu.js"];
 
 $additionalScripts = isset($_SESSION['id_user']) ? ["forum/likes_dislikes.js"] : [];
@@ -48,12 +49,12 @@ include_once "../../include/head.php";
     <main>
         <section class="responses">
             <h3>Hilo Completo</h3>
-            <a class="back" href="/pages/forum/discussion/<?= htmlspecialchars($slug) ?>">«Volver a la discusión
+            <a class="back" href="../../<?= htmlspecialchars($slug) ?>">«Volver a la discusión
                 principal»</a>
             <?php
             if (!empty($mainComment)) {
                 $mainComment['replies'] = getRepliesWithLimit($pdo, $mainComment['id_comment'], 1, MAX_COMMENTS, $id_user);
-                renderComments([$mainComment], MAX_DEPTH);
+                renderComments([$mainComment], MAX_DEPTH, 5);
             } else {
                 echo "<p>No hay comentarios en este hilo.</p>";
             }

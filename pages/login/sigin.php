@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
       $_SESSION['id_user'] = $user['id_user'];
       $_SESSION['username'] = $user['username'];
       $_SESSION['role'] = $user['role'];
-      header("Location: /index.php");
+      header("Location: ../../index.php");
       exit;
     } else {
       $sql_insert_attempt = "INSERT INTO login_attempts (ip_address, email, attempt_time) VALUES (:ip_address, :email, NOW())";
@@ -64,14 +64,14 @@ include_once "../../include/head.php";
 <body>
   <div class="container">
     <div class="image-side">
-      <img src="/images/Login/Transbordador.svg" alt="Un transbordador espacial" class="center-image" />
+      <img src="../../images/Login/Transbordador.svg" alt="Un transbordador espacial" class="center-image" />
     </div>
     <div class="background-side">
       <div class="login-container">
         <div class="logo">
-          <img src="/images/Logo.svg" />
+          <img src="../../images/Logo.svg" />
         </div>
-        <img src="/images/SpacePathways.svg" />
+        <img src="../../images/SpacePathways.svg" />
 
         <?php
         if (isset($error)) {

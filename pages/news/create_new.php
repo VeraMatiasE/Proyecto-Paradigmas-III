@@ -8,6 +8,7 @@ if (!(userHasRole("news") || userHasRole("admin"))) {
 }
 
 $title = "Escribir una Noticia";
+$relative_path_scripts = "../..";
 $scripts = ["color-switch.js", "hamburger-menu.js", "news/rich_text_editor.js", "news/submit_new.js"];
 
 $styles = "modifyNew.css";

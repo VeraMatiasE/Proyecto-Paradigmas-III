@@ -2,7 +2,7 @@
 require_once "../../include/config/session.php";
 
 if (!isset($_GET['slug'])) {
-  header("Location: /pages/errors/404.php");
+  header("Location: ../../../pages/errors/404.php");
   exit();
 }
 
@@ -15,7 +15,7 @@ $pdo = getDatabaseConnection();
 $post_info = getPostInfo($pdo, $slug);
 
 if (!$post_info) {
-  header("Location: /pages/errors/404.php");
+  header("Location: ../../../pages/errors/404.php");
   exit();
 }
 
@@ -26,6 +26,7 @@ $baseScripts = ["forum/response.js", "forum/load_comments.js", "forum/load_repli
 
 $additionalScripts = isset($_SESSION['id_user']) ? ["forum/likes_dislikes.js", "forum/new_comment.js"] : [];
 
+$relative_path_scripts = "../../..";
 $scripts = array_merge($baseScripts, $additionalScripts);
 
 $moduleScripts = ["forum/response.js", "forum/load_replies.js", "forum/load_comments.js", "forum/likes_dislikes.js", "forum/new_comment.js"];

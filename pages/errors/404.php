@@ -2,8 +2,7 @@
 $title = "Error 404";
 
 $scripts = [
-    "color-switch.js",
-    "errors/404-black-hole.js",
+    "errors/404-black-hole.js"
 ];
 
 $styles = "error.css";
@@ -11,6 +10,7 @@ $styles = "error.css";
 $alt_font = "https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap";
 
 include_once "../../include/head.php";
+require_once "../../include/config/config.php";
 ?>
 
 <body>
@@ -21,7 +21,7 @@ include_once "../../include/head.php";
         </span>4
     </div>
     <div class="message">La página no fue encontrada.</div>
-    <a href="/" class="button-background return">Regresar al inicio</a>
+    <a href="<?= BASE_PATH ?>/" class="button-background return">Regresar al inicio</a>
 </body>
 
 </html>

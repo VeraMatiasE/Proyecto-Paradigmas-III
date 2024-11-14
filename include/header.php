@@ -7,7 +7,7 @@ require_once "config/config.php";
 ?>
 <header>
   <div class="top-menu">
-    <a href="/index.php" class="logo">
+    <a href="<?= BASE_PATH ?>/index.php" class="logo">
       <img src="<?= BASE_PATH ?>/images/Logo.svg" alt="Logo" />
       <img src="<?= BASE_PATH ?>/images/SpacePathways.svg" alt="Nombre del sitio" class="logo-name" />
     </a>

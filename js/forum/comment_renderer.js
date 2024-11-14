@@ -33,7 +33,7 @@ function createReactionButton(type, comment, is_logged = false) {
     attributes: is_logged
       ? { "data-comment-id": comment.id_comment }
       : { "data-comment-id": comment.id_comment, disabled: "" },
-    innerHTML: `<img src="/images/Forum/${type}.svg">(<span id="${type}-count-${
+    innerHTML: `<img src="${BASE_PATH}/images/Forum/${type}.svg">(<span id="${type}-count-${
       comment.id_comment
     }">${type === "like" ? comment.like_count : comment.dislike_count}</span>)`,
   });
@@ -93,7 +93,7 @@ export function createReplyElement(comment, slug, is_logged = false) {
       classes: ["view-thread-button", "reaction-button"],
       innerHTML: "Ver conversación completa",
       attributes: {
-        onclick: `window.location.href='/pages/forum/discussion/${slug}/comments/${comment.id_comment}'`,
+        onclick: `window.location.href='${BASE_PATH}/pages/forum/discussion/${slug}/comments/${comment.id_comment}'`,
       },
     });
     commentElement.append(linkButton);

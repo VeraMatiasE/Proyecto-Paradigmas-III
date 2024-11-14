@@ -25,6 +25,9 @@
     <link rel='icon' href='<?= BASE_PATH ?>/images/favicon.ico' type='image/x-icon' />
     <?php
     if (isset($scripts) && is_array($scripts)) {
+        if (isset($relative_path_scripts)) {
+            echo "<script>const BASE_PATH = '$relative_path_scripts';</script>";
+        }
         foreach ($scripts as $script) {
             $isModule = isset($moduleScripts) ? in_array($script, $moduleScripts) : false;
             echo '<script src="' . BASE_PATH . '/js/' . htmlspecialchars($script) . '" ' . ($isModule ? 'type="module"' : '') . ' defer></script>' . "\n";

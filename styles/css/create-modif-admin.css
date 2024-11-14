@@ -478,6 +478,7 @@ label {
 input[type=text],
 input[type=date],
 input[type=number],
+input[type=email],
 select,
 textarea {
   width: -moz-available;
@@ -492,6 +493,7 @@ textarea {
 input[type=text]:hover,
 input[type=date]:hover,
 input[type=number]:hover,
+input[type=email]:hover,
 select:hover,
 textarea:hover {
   border: 3px solid var(--accent-color);

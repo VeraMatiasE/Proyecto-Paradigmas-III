@@ -1,18 +1,23 @@
+CREATE TABLE mvProyectoParadigmasIII;
+USE mvProyectoParadigmasIII;
+
 -- Estados
 CREATE TABLE IF NOT EXISTS status (
     id_status SMALLINT AUTO_INCREMENT PRIMARY KEY, 
-    name VARCHAR(20) NOT NULL
+    name VARCHAR(20) NOT NULL,
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Agencias espaciales
 CREATE TABLE IF NOT EXISTS space_agency (
     id_agency INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    logo VARCHAR(255)
+    logo VARCHAR(255),
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Tabla: 
-CREATE TABLE mission_details (
+CREATE TABLE IF NOT EXISTS mission_details (
     id_mission_details INT AUTO_INCREMENT PRIMARY KEY,
     launch_site VARCHAR(100),
     end_date DATE,
@@ -21,21 +26,24 @@ CREATE TABLE mission_details (
     crew_size INT,
     budget DECIMAL(15,2),
     objectives TEXT,
-    achievements TEXT
+    achievements TEXT,
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Tabla celestial_object (agregar esta si aún no existe)
 CREATE TABLE IF NOT EXISTS celestial_object (
     id_celestial_object INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    logo VARCHAR(255)
+    logo VARCHAR(255),
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Tabla: mission_type
 CREATE TABLE IF NOT EXISTS mission_type (
     id_mission_type INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    logo VARCHAR(255)
+    logo VARCHAR(255),
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Misiones
@@ -51,6 +59,7 @@ CREATE TABLE IF NOT EXISTS mission (
     id_mission_type INT,
     id_agency INT,
     id_mission_details INT,
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_status) REFERENCES status(id_status),
     FOREIGN KEY (id_celestial_object) REFERENCES celestial_object(id_celestial_object),
     FOREIGN KEY (id_mission_type) REFERENCES mission_type(id_mission_type),
@@ -66,7 +75,8 @@ CREATE TABLE IF NOT EXISTS users (
     lastname VARCHAR(70),
     email VARCHAR(255) UNIQUE,
     password VARCHAR(60),
-    role ENUM('admin', 'news', 'user') DEFAULT 'user' NOT NULL
+    role ENUM('admin', 'news', 'user') DEFAULT 'user' NOT NULL,
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Intentos de Sesión 
@@ -74,7 +84,8 @@ CREATE TABLE IF NOT EXISTS login_attempts (
     id_login_attempts INT AUTO_INCREMENT PRIMARY KEY,
     ip_address VARCHAR(45),
     email VARCHAR(255),
-    attempt_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    attempt_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_deleted BOOLEAN DEFAULT FALSE
 );
 
 -- Posts
@@ -85,6 +96,8 @@ CREATE TABLE IF NOT EXISTS posts (
     title VARCHAR(100),
     description VARCHAR(600),
     count_comments INT DEFAULT 0,
+    created_at DATE DEFAULT(NOW()),
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_user) REFERENCES users(id_user)
 );
 
@@ -98,6 +111,7 @@ CREATE TABLE IF NOT EXISTS comments (
     like_count INT DEFAULT 0,
     dislike_count INT DEFAULT 0,
     id_reply INT DEFAULT NULL,
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_user) REFERENCES users(id_user),
     FOREIGN KEY (id_post) REFERENCES posts(id_post),
     FOREIGN KEY (id_reply) REFERENCES comments(id_comment)
@@ -109,6 +123,7 @@ CREATE TABLE IF NOT EXISTS comment_likes (
     id_comment INT NOT NULL,
     id_user INT NOT NULL,
     like_type ENUM('like', 'dislike') NOT NULL,
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_comment) REFERENCES comments(id_comment),
     FOREIGN KEY (id_user) REFERENCES users(id_user),
     UNIQUE (id_comment, id_user) -- Evita duplicados de reacción por usuario
@@ -123,5 +138,6 @@ CREATE TABLE IF NOT EXISTS news (
     banner VARCHAR(255),
     published_at DATETIME,
     slug VARCHAR(255),
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_author) REFERENCES users(id_user)
 );

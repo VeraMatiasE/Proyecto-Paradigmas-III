@@ -9,7 +9,7 @@ const responses = document.querySelector(".responses");
 const sentinela = document.getElementById("sentinela");
 
 const loadingIcon = document.createElement("div");
-loadingIcon.innerHTML = '<img src="/images/Logo.svg" alt="Cargando...">';
+loadingIcon.innerHTML = `<img src="${BASE_PATH}/images/Logo.svg" alt="Cargando...">`;
 loadingIcon.style.display = "none";
 loadingIcon.classList.add("loading-icon");
 responses.appendChild(loadingIcon);
