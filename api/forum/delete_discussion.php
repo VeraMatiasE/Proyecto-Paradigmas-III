@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['slug'])) {
     require_once '../../include/config/database.php';
     $pdo = getDatabaseConnection();
     $slug = $_GET['slug'];
-    $stmt = $pdo->prepare("SELECT EXISTS (SELECT * FROM posts WHERE slug = :slug AND id_user = :id_user)");
+    $stmt = $pdo->prepare("SELECT EXISTS (SELECT 1 FROM posts WHERE slug = :slug AND id_user = :id_user)");
     $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
     $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
     $stmt->execute();

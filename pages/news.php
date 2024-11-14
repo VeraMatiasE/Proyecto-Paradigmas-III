@@ -28,9 +28,9 @@ include_once "../include/head.php";
                  END AS news_type
           FROM (
               SELECT title, banner, slug, is_deleted, ROW_NUMBER() OVER (ORDER BY published_at DESC) AS rn
-              FROM news
+              FROM news WHERE is_deleted IS FALSE
           ) AS subquery
-          WHERE rn <= 3 AND is_deleted IS FALSE
+          WHERE rn <= 3
           ORDER BY rn
         ';
 

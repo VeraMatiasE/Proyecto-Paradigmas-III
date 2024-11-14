@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_user'])) {
 
 $title = "Mis Noticias";
 $styles = "forum-new-list.css";
-$scripts = ["color-switch.js", "hamburger-menu.js"];
+$scripts = ["color-switch.js", "hamburger-menu.js", "news/delete_new.js"];
 
 
 include_once "../../include/head.php";
@@ -29,18 +29,18 @@ $pdo = getDatabaseConnection();
             require_once "../../include/config/database.php";
             $pdo = getDatabaseConnection();
             $sql = "SELECT title, slug, published_at FROM news 
-                    WHERE id_author = :id_user";
+                    WHERE id_author = :id_user AND is_deleted IS FALSE";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":id_user", $id_user, PDO::PARAM_INT);
             $stmt->execute();
             $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($news as $new) {
                 ?>
-                <div class="news-item">
+                <div class="news-item" id="new-<?= $new['slug'] ?>">
                     <h2><a href="<?= $new['slug'] ?>"><?= $new['title'] ?></a></h2>
                     <p><?= $new['published_at'] ?></p>
                     <a href="edit_new/<?= $new['slug'] ?>" class="button edit">Editar</a>
-                    <a href="delete_new/<?= $new['slug'] ?>" class="button delete">Eliminar</a>
+                    <a class="button delete" data-slug="<?= $new['slug'] ?>">Eliminar</a>
                 </div>
                 <?php
             }
