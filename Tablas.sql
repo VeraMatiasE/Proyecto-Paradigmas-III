@@ -1,3 +1,6 @@
+CREATE TABLE mvProyectoParadigmasIII;
+USE mvProyectoParadigmasIII;
+
 -- Estados
 CREATE TABLE IF NOT EXISTS status (
     id_status SMALLINT AUTO_INCREMENT PRIMARY KEY, 
