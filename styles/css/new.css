@@ -485,6 +485,14 @@ footer .logo .logo-name {
   margin-bottom: 20px;
 }
 
+.author {
+  font-weight: bold;
+}
+
+.date {
+  font-style: italic;
+}
+
 .news-text {
   font-size: 18px;
   line-height: 1.6;
@@ -493,4 +501,9 @@ footer .logo .logo-name {
 
 div {
   margin: 20px 0;
+}
+
+.preview {
+  width: -moz-available;
+  width: -webkit-fill-available;
 }

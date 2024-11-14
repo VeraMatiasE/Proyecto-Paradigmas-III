@@ -18,6 +18,7 @@ $pdo = getDatabaseConnection();
 $new_info = getNewsInfo($pdo, $slug);
 
 $title = "Editar ";
+$relative_path_scripts = "../../..";
 $scripts = ["color-switch.js", "hamburger-menu.js", "news/rich_text_editor.js", "news/submit_new.js"];
 
 $styles = "modifyNew.css";
@@ -41,7 +42,7 @@ include_once "../../include/head.php";
         <?php
         require_once "../../include/functions/news_html.php";
         $json_content = json_decode($new_info['content'], true);
-        $html_content = jsonToHtml($json_content);
+        $html_content = jsonToHtml($json_content, '../../../images/News/uploads');
         ?>
         <rich-editor></rich-editor>
         <button type="submit" class="button-background">Enviar</button>

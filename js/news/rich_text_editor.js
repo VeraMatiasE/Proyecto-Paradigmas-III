@@ -20,26 +20,26 @@ class RichTextEditor extends HTMLElement {
         // Estilos para el editor y la barra de herramientas
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/styles/css/richText.css';
+        link.href = `${BASE_PATH}/styles/css/richText.css`;
 
         // Botones de la barra de herramientas
         toolbar.innerHTML = `
-            <img class="undo" data-command="undo" src="/images/JS WebComponents/RichEditor/undo.svg" alt="Deshacer" >
-            <img class="redo" data-command="redo" src="/images/JS WebComponents/RichEditor/redo.svg" alt="Rehacer" >
+            <img class="undo" data-command="undo" src="${BASE_PATH}/images/JS WebComponents/RichEditor/undo.svg" alt="Deshacer" >
+            <img class="redo" data-command="redo" src="${BASE_PATH}/images/JS WebComponents/RichEditor/redo.svg" alt="Rehacer" >
             <button class="bold" data-command="bold">B</button>
             <button class="italic" data-command="italic">I</button>
             <button data-command="formatBlock" data-value="h1">H1</button>
             <button data-command="formatBlock" data-value="h2">H2</button>
             <button data-command="formatBlock" data-value="div">p</button>
-            <img data-command="insertImage" src="/images/JS WebComponents/RichEditor/image.svg" alt="Insertar Imagen" >
-            <img data-command="createLink" src="/images/JS WebComponents/RichEditor/link.svg" alt="Insertar Enlace" >
+            <img data-command="insertImage" src="${BASE_PATH}/images/JS WebComponents/RichEditor/image.svg" alt="Insertar Imagen" >
+            <img data-command="createLink" src="${BASE_PATH}/images/JS WebComponents/RichEditor/link.svg" alt="Insertar Enlace" >
             <!-- Alineación -->
-            <img data-command="justifyLeft" src="/images/JS WebComponents/RichEditor/left-align.svg" alt="Undo" >
-            <img data-command="justifyCenter" src="/images/JS WebComponents/RichEditor/center-align.svg" alt="Undo" >
-            <img data-command="justifyRight" src="/images/JS WebComponents/RichEditor/right-align.svg" alt="Undo" >
+            <img data-command="justifyLeft" src="${BASE_PATH}/images/JS WebComponents/RichEditor/left-align.svg" alt="Undo" >
+            <img data-command="justifyCenter" src="${BASE_PATH}/images/JS WebComponents/RichEditor/center-align.svg" alt="Undo" >
+            <img data-command="justifyRight" src="${BASE_PATH}/images/JS WebComponents/RichEditor/right-align.svg" alt="Undo" >
             <!-- Listas -->
-            <img data-command="insertUnorderedList" src="/images/JS WebComponents/RichEditor/u-list.svg" alt="Lista Desordenada" >
-            <img data-command="insertOrderedList" src="/images/JS WebComponents/RichEditor/o-list.svg" alt="Lista Ordenada" >
+            <img data-command="insertUnorderedList" src="${BASE_PATH}/images/JS WebComponents/RichEditor/u-list.svg" alt="Lista Desordenada" >
+            <img data-command="insertOrderedList" src="${BASE_PATH}/images/JS WebComponents/RichEditor/o-list.svg" alt="Lista Ordenada" >
         `;
 
         // Event listeners para los botones de la barra de herramientas

@@ -38,8 +38,8 @@ $pdo = getDatabaseConnection();
                 ?>
                 <div class="news-item">
                     <h2><a href="<?= $new['slug'] ?>"><?= $new['title'] ?></a></h2>
-                    <p><?= $post['published_at'] ?></p>
-                    <a href="../edit_new/<?= $new['slug'] ?>" class="button edit">Editar</a>
+                    <p><?= $new['published_at'] ?></p>
+                    <a href="edit_new/<?= $new['slug'] ?>" class="button edit">Editar</a>
                     <a href="delete_new/<?= $new['slug'] ?>" class="button delete">Eliminar</a>
                 </div>
                 <?php
