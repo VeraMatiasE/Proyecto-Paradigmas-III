@@ -29,7 +29,7 @@ if (isset($_POST['register'])) {
       "email" => $email,
       "password" => $password
     ]);
-    header("Location: /index.php");
+    header("Location: ../../index.php");
     exit;
   }
 }
@@ -44,9 +44,9 @@ include_once "../../include/head.php";
   <div class="background-side">
     <div class="login-container">
       <div class="logo">
-        <img src="/images/Logo.svg" />
+        <img src="../../images/Logo.svg" />
       </div>
-      <img src="/images/SpacePathways.svg" />
+      <img src="../../images/SpacePathways.svg" />
 
       <?php
       if (isset($error)) {
@@ -89,7 +89,7 @@ include_once "../../include/head.php";
     </div>
   </div>
   <div class="image-side">
-    <img src="/images/Login/TransbordadorAndEarth.svg" alt="Un transbordador espacial saliendo de la Tierra"
+    <img src="../../images/Login/TransbordadorAndEarth.svg" alt="Un transbordador espacial saliendo de la Tierra"
       class="center-image" />
   </div>
 </div>
