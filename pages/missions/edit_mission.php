@@ -15,7 +15,7 @@ $slug = $_GET['slug'];
 
 $scripts = ["color-switch.js", "hamburger-menu.js", "missions/submit_mission.js"];
 $title = "Editar Misión Espacial";
-$styles = "create-modif-mission.css";
+$styles = "create-modif-admin.css";
 
 include_once "../../include/head.php";
 
