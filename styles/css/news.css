@@ -609,6 +609,9 @@ img.lazy-load {
   padding: 20px;
   background-color: var(--background-color);
 }
+.news-grid p.no-news {
+  text-align: center;
+}
 
 .grid-item {
   background-color: var(--darker-background-color);

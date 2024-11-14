@@ -85,6 +85,10 @@
   gap: 20px;
   padding: 20px;
   background-color: var(--background-color);
+
+  p.no-news {
+    text-align: center;
+  }
 }
 
 .grid-item {

@@ -118,21 +118,25 @@ include_once "../include/head.php";
         $stmt->execute();
         $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($news as $new) {
-          ?>
-          <article class="grid-item">
-            <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
-              <div class="image-container">
-                <div class="skeleton"></div>
-                <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
-                  class="lazy-load" />
-              </div>
-              <h3>
-                <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
-              </h3>
-            </a>
-          </article>
-          <?php
+        if (empty($news)) {
+          echo "<p class='no-news'>No hay noticias disponibles en este momento.</p>";
+        } else {
+          foreach ($news as $new) {
+            ?>
+            <article class="grid-item">
+              <a href="news/<?= htmlspecialchars($new['slug'], ENT_QUOTES, "UTF-8") ?>">
+                <div class="image-container">
+                  <div class="skeleton"></div>
+                  <img src="../images/News/uploads/<?= htmlspecialchars($new['banner'], ENT_QUOTES, "UTF-8") ?>"
+                    class="lazy-load" />
+                </div>
+                <h3>
+                  <?= htmlspecialchars($new['title'], ENT_QUOTES, "UTF-8") ?>
+                </h3>
+              </a>
+            </article>
+            <?php
+          }
         }
         ;
       } catch (PDOException $e) {
