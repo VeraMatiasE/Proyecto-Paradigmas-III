@@ -53,7 +53,7 @@ include_once "../../include/head.php";
             <?php
             if (!empty($mainComment)) {
                 $mainComment['replies'] = getRepliesWithLimit($pdo, $mainComment['id_comment'], 1, MAX_COMMENTS, $id_user);
-                renderComments([$mainComment], MAX_DEPTH);
+                renderComments([$mainComment], MAX_DEPTH, 5);
             } else {
                 echo "<p>No hay comentarios en este hilo.</p>";
             }

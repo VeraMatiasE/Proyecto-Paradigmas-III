@@ -2,7 +2,7 @@
 require_once "../../include/config/session.php";
 
 if (!isset($_GET['slug'])) {
-  header("Location: /pages/errors/404.php");
+  header("Location: ../../../pages/errors/404.php");
   exit();
 }
 
@@ -15,7 +15,7 @@ $pdo = getDatabaseConnection();
 $post_info = getPostInfo($pdo, $slug);
 
 if (!$post_info) {
-  header("Location: /pages/errors/404.php");
+  header("Location: ../../../pages/errors/404.php");
   exit();
 }
 

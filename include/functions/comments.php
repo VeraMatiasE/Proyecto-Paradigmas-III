@@ -55,8 +55,8 @@ function getRepliesWithLimit(PDO $pdo, int $id_comment, int $depth = 1, int $max
 }
 
 include_once "date.php";
-
-function renderComments(array $comments, int $maxDepth = 3): void
+include_once "relative_path.php";
+function renderComments(array $comments, int $maxDepth = 3, $relativePath = 3): void
 {
     foreach ($comments as $comment) {
         $likeSelected = ($comment['user_reaction'] === 'like') ? 'selected' : '';
@@ -77,22 +77,22 @@ function renderComments(array $comments, int $maxDepth = 3): void
                     <button class="toggle-reply button-background">Responder</button>
                     <button class="reaction-button like-button <?= $likeSelected; ?>"
                         data-comment-id="<?= $comment['id_comment']; ?>">
-                        <img src="/images/Forum/like.svg">(<span
+                        <img src="<?= getRelativePath($relativePath, "images/Forum/like.svg") ?>">(<span
                             id="like-count-<?= $comment['id_comment']; ?>"><?= $comment['like_count']; ?></span>)
                     </button>
                     <button class="reaction-button dislike-button <?= $dislikeSelected; ?>"
                         data-comment-id="<?= $comment['id_comment']; ?>">
-                        <img src="/images/Forum/dislike.svg">(<span
+                        <img src="<?= getRelativePath($relativePath, "images/Forum/dislike.svg") ?>">(<span
                             id="dislike-count-<?= $comment['id_comment']; ?>"><?= $comment['dislike_count']; ?></span>)
                     </button>
                 <?php else: ?>
                     <button class="toggle-reply button-background" disabled>Responder</button>
                     <button class="reaction-button like-button" data-comment-id="<?= $comment['id_comment']; ?>" disabled>
-                        <img src="/images/Forum/like.svg">(<span
+                        <img src="<?= getRelativePath($relativePath, "images/Forum/like.svg") ?>">(<span
                             id="like-count-<?= $comment['id_comment']; ?>"><?= $comment['like_count']; ?></span>)
                     </button>
                     <button class="reaction-button dislike-button" data-comment-id="<?= $comment['id_comment']; ?>" disabled>
-                        <img src="/images/Forum/dislike.svg">(<span
+                        <img src="<?= getRelativePath($relativePath, "images/Forum/dislike.svg") ?>">(<span
                             id="dislike-count-<?= $comment['id_comment']; ?>"><?= $comment['dislike_count']; ?></span>)
                     </button>
                 <?php endif; ?>
@@ -103,7 +103,7 @@ function renderComments(array $comments, int $maxDepth = 3): void
                     echo "<button class='load-more-replies' data-id='{$comment['id_comment']}'>Cargar más respuestas</button>";
                 } else {
                     echo "<div class='sub-responses'>";
-                    renderComments($comment['replies'], $maxDepth);
+                    renderComments($comment['replies'], $maxDepth, $relativePath);
                     echo "</div>";
                 }
             }
