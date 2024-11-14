@@ -2,8 +2,7 @@
 $title = "Error 404";
 
 $scripts = [
-    "color-switch.js",
-    "errors/404-black-hole.js",
+    "errors/404-black-hole.js"
 ];
 
 $styles = "error.css";
