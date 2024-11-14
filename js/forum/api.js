@@ -33,7 +33,7 @@ export function getSlugPost() {
 }
 
 export async function submitComment(content, id_comment) {
-  return await fetchData("/api/forum/create_comment.php", "POST", {
+  return await fetchData(`${BASE_PATH}/api/forum/create_comment.php`, "POST", {
     content,
     id_comment,
     slug: getSlugPost(),
@@ -44,7 +44,7 @@ export async function loadComments(offset = 0, limit = 5) {
   let postSlug = getSlugPost();
   try {
     return await fetchData(
-      `/api/forum/load_comments.php?slug=${postSlug}&offset=${offset}`
+      `${BASE_PATH}/api/forum/load_comments.php?slug=${postSlug}&offset=${offset}`
     );
   } catch (error) {
     console.error("Error al cargar comentarios:", error);
@@ -58,7 +58,7 @@ export async function loadMoreReplies(commentId, button) {
 
   try {
     const data = await fetchData(
-      `/api/forum/load_replies.php?comment_id=${commentId}&depth_limit=${depthLimit}`
+      `${BASE_PATH}/api/forum/load_replies.php?comment_id=${commentId}&depth_limit=${depthLimit}`
     );
     if (data.success) {
       let subResponsesContainer = button
