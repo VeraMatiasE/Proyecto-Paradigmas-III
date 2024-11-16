@@ -1,4 +1,4 @@
-CREATE TABLE mvProyectoParadigmasIII;
+CREATE DATABASE mvProyectoParadigmasIII;
 USE mvProyectoParadigmasIII;
 
 -- Estados
@@ -141,3 +141,84 @@ CREATE TABLE IF NOT EXISTS news (
     is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_author) REFERENCES users(id_user)
 );
+
+DELIMITER $$
+CREATE TRIGGER increment_comment_count AFTER INSERT ON comments FOR EACH ROW
+BEGIN
+	UPDATE posts SET count_comments = count_comments + 1 WHERE id_post = NEW.id_post;
+END$$
+
+CREATE TRIGGER decrement_comment_count AFTER DELETE ON comments FOR EACH ROW 
+BEGIN
+	UPDATE posts SET count_comments = count_comments - 1 WHERE id_post = OLD.id_post;
+END$$
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER update_like_dislike_counts
+AFTER INSERT ON comment_likes
+FOR EACH ROW
+BEGIN
+    IF NEW.like_type = 'like' THEN
+        UPDATE comments 
+        SET like_count = like_count + 1 
+        WHERE id_comment = NEW.id_comment;
+    ELSEIF NEW.like_type = 'dislike' THEN
+        UPDATE comments 
+        SET dislike_count = dislike_count + 1 
+        WHERE id_comment = NEW.id_comment;
+    END IF;
+END//
+//
+
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER update_like_dislike_counts_on_update
+AFTER UPDATE ON comment_likes
+FOR EACH ROW
+BEGIN
+    IF OLD.like_type != NEW.like_type THEN
+        IF OLD.like_type = 'like' THEN
+            UPDATE comments 
+            SET like_count = like_count - 1 
+            WHERE id_comment = OLD.id_comment;
+        ELSEIF OLD.like_type = 'dislike' THEN
+            UPDATE comments 
+            SET dislike_count = dislike_count - 1 
+            WHERE id_comment = OLD.id_comment;
+        END IF;
+        
+        IF NEW.like_type = 'like' THEN
+            UPDATE comments 
+            SET like_count = like_count + 1 
+            WHERE id_comment = NEW.id_comment;
+        ELSEIF NEW.like_type = 'dislike' THEN
+            UPDATE comments 
+            SET dislike_count = dislike_count + 1 
+            WHERE id_comment = NEW.id_comment;
+        END IF;
+    END IF;
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER update_like_dislike_counts_on_delete
+AFTER DELETE ON comment_likes
+FOR EACH ROW
+BEGIN
+    IF OLD.like_type = 'like' THEN
+        UPDATE comments 
+        SET like_count = like_count - 1 
+        WHERE id_comment = OLD.id_comment;
+    ELSEIF OLD.like_type = 'dislike' THEN
+        UPDATE comments 
+        SET dislike_count = dislike_count - 1 
+        WHERE id_comment = OLD.id_comment;
+    END IF;
+END//
+
+DELIMITER ;
